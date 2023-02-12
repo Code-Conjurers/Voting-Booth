@@ -20,7 +20,8 @@ function App() {
 
   return (
     <div className="App">
-      
+      <h1>Voting Booth App</h1>
+      <CreatePoll />
     </div>
   );
 }

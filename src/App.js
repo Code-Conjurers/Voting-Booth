@@ -19,6 +19,7 @@ function App() {
     <div className="App">
       <NavBar />
       <h1>Voting Booth App</h1>
+      <h2></h2>
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/createpoll" element={<CreatePoll />} />

@@ -1,6 +1,6 @@
-# Getting Started with Create React App
+# Whatever Floats Your Vote
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A collaborative app built by us four wizards.
 
 ## Available Scripts
 

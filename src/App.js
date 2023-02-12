@@ -20,8 +20,14 @@ function App() {
 
   return (
     <div className="App">
-      <h1>Voting Booth App</h1>
-      <CreatePoll />
+      <NavBar />
+      <h1>Voting Booth App!</h1>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/createpoll" element={<CreatePoll />} />
+          <Route path="*" element={<ErrorPage />} />
+        </Routes>
+      <Footer />
     </div>
   );
 }

@@ -1,20 +1,8 @@
 import { useState } from "react";
-import "firebase/compat/database";
-import firebase from 'firebase/compat/app';
+import firebase from "./Firebase";
+import { getDatabase, ref, push } from "firebase/database"
 
 function PollCreationPage() {
-
-    // const firebaseConfig = {
-    //     apiKey: "AIzaSyDX24f-P7A7fChNLQBSNxdY25g6tZ_uKKw",
-    //     authDomain: "voting-booth-1005f.firebaseapp.com",
-    //     projectId: "voting-booth-1005f",
-    //     storageBucket: "voting-booth-1005f.appspot.com",
-    //     messagingSenderId: "864327155103",
-    //     appId: "1:864327155103:web:ed3c007b75d5375ca111aa"
-    //   };
-      
-    //   // Initialize Firebase
-    //   firebase.initializeApp(firebaseConfig);
 
     // const [pollData, setPollData] = useState([]);
     const [pollQuestion, setPollQuestion] = useState("");
@@ -22,23 +10,29 @@ function PollCreationPage() {
     const [pollOptionOne, setPollOptionOne] = useState("");
     const [pollOptionTwo, setPollOptionTwo] = useState("");
 
-    const addPoll = (e) => {
-        if (pollQuestion !== "" && pollDescription !== "" && pollOptionOne !== "" && pollOptionTwo !== "") {
-            e.preventDefault();
-            firebase.database().ref("poll").push({
-                pollQuestion: pollQuestion,
-                pollDescription: pollDescription,
-                pollOptionOne: pollOptionOne,
-                pollOptionTwo: pollOptionTwo
-            })
-            console.log("success");
-        }
-        console.log("success");
+       
 
-        // setPollQuestion("");
-        // setPollDescription("");
-        // setPollOptionOne("");
-        // setPollOptionTwo("");
+    const addPoll = (e) => {
+        e.preventDefault();
+
+        const pollObject = {
+            pollQuestion: pollQuestion,
+            pollDescription: pollDescription,
+            pollOptionOne: pollOptionOne,
+            pollOptionTwo: pollOptionTwo
+        }
+
+        // Reference the database
+        const database = getDatabase(firebase);
+        const dbRef = ref(database);
+
+        // Push value of pollObject  to the database
+        push(dbRef, pollObject);
+
+        setPollQuestion("");
+        setPollDescription("");
+        setPollOptionOne("");
+        setPollOptionTwo("");
     }
 
     const handleQuestionChange = (e) => {
@@ -96,7 +90,7 @@ function PollCreationPage() {
                     onChange={handleOptionTwoChange}
                     aria-label="Poll Option Two"
                 />
-                <button aria-label="create poll" onClick={() => addPoll ()}>Submit</button>
+                <button aria-label="create poll" onClick={addPoll}>Submit</button>
             </form>
             <button>Go Back</button>
         </div>

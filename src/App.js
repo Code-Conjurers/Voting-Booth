@@ -1,26 +1,31 @@
+// modules
+import { Routes, Route } from 'react-router-dom';
+
+// components
+import ErrorPage from "./Pages/ErrorPage";
+import CreatePoll from './Pages/CreatePoll';
+import Home from './Pages/Home';
+import NavBar from './Components/NavBar';
+import Footer from './Components/Footer';
+
+// CSS
 import './App.scss';
 
-//components
-import CreatePoll from './Components/CreatePoll';
+// Mock Components
 
 function App() {
 
-  // //Firebase Config
-  // const firebaseConfig = {
-  //   apiKey: "AIzaSyDX24f-P7A7fChNLQBSNxdY25g6tZ_uKKw",
-  //   authDomain: "voting-booth-1005f.firebaseapp.com",
-  //   projectId: "voting-booth-1005f",
-  //   storageBucket: "voting-booth-1005f.appspot.com",
-  //   messagingSenderId: "864327155103",
-  //   appId: "1:864327155103:web:ed3c007b75d5375ca111aa"
-  // };
-  
-  // // Initialize Firebase
-  // firebase.initializeApp(firebaseConfig);
-
   return (
     <div className="App">
-      
+      <NavBar />
+      <h1>Voting Booth App</h1>
+      <h2></h2>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/createpoll" element={<CreatePoll />} />
+          <Route path="*" element={<ErrorPage />} />
+        </Routes>
+      <Footer />
     </div>
   );
 }

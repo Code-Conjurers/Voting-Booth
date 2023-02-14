@@ -2,7 +2,7 @@
 import * as React from 'react'
 import firebase from '../Components/Firebase';
 import { useEffect, useState } from 'react';
-import { getDatabase, ref, onValue } from 'firebase/database';
+import { getDatabase, ref, onValue, update } from 'firebase/database';
 import { useParams, Link } from 'react-router-dom';
 import VotingConfirmation from '../Components/VotingConfirmation';
 
@@ -11,6 +11,8 @@ function VotingBooth() {
   const [pollData, setPollData] = useState([]);
   const [isSubmitted, setIsSubmitted] = useState(false);
   const { boothID } = useParams();
+  const [getValue, setGetValue] = useState();
+  // const [voteKey, setVoteKey] = useState();
   // Firebase Connection
   useEffect(() => {
     // create a variable (database) that holds our database details
@@ -34,13 +36,40 @@ function VotingBooth() {
     })
   }, [])
 
-  function handleSubmitVote(e) {
+  // const [voteKey, setVoteKey]
+
+  // const boothID = ref(database, ``)
+
+  function handleSubmitVote(e, poll) {
     e.preventDefault();
     setIsSubmitted(true);
+    console.log(poll);
+    const votingObject = {
+      ...poll.poll,      
+    };
+    
+    if(getValue === 'pollOptionOne') {
+      votingObject.pollOptionOne.votes = votingObject.pollOptionOne.votes + 1
+    }else{
+      votingObject.pollOptionTwo.votes = votingObject.pollOptionTwo.votes + 1
+    }
+    votingObject.totalVotes = votingObject.pollOptionOne.votes + votingObject.pollOptionTwo.votes
+
+    const database = getDatabase(firebase);
+   
+    const dbRef = ref(database, `/${poll.key}`);
+
+    update(dbRef, votingObject);
+    
   }
-
-
-
+  
+  function onChangeValue(e) {
+    setGetValue(e.target.value);
+  }
+  
+  
+  
+  
   return (
     <>
       <h1>Voting Booth for Poll: {boothID}</h1>
@@ -58,13 +87,13 @@ function VotingBooth() {
                       <h2 >Booth Number: {poll.key}</h2>
                       <h3 >Question: {poll.poll.pollQuestion}</h3>
                       <p>Description: {poll.poll.pollDescription}</p>
-                      <form>
-                        <fieldset>
-                          <label htmlFor="option-one">{poll.poll.pollOptionOne}</label>
-                          <input type="radio" id="option-one" name="choice" />
-                          <label htmlFor="option-two">{poll.poll.pollOptionTwo}</label>
-                          <input type="radio" id="option-two" name="choice" />
-                          <button type="submit" onClick={handleSubmitVote}> Submit</button>
+                      <form onSubmit={(e)=> {handleSubmitVote (e, poll)} }>
+                        <fieldset onChange={onChangeValue}>
+                          <label htmlFor="option-one">{poll.poll.pollOptionOne.optionOneDescription}</label>
+                          <input type="radio" id="option-one" name="choice" value="pollOptionOne" />
+                          <label htmlFor="option-two">{poll.poll.pollOptionTwo.optionTwoDescription}</label>
+                          <input type="radio" id="option-two" name="choice" value= "pollOptionTwo" />
+                          <button type="submit"> Submit</button>
                         </fieldset>
                       </form>
                     </div>
@@ -79,3 +108,10 @@ function VotingBooth() {
 }
 
 export default VotingBooth;
+
+// const handleVoteChange = (e) => {
+
+//   };
+//   const handleTotalVoteChange = (e) => {
+
+//   };

@@ -7,8 +7,8 @@ function PollCreationPage() {
   // const [pollData, setPollData] = useState([]);
   const [pollQuestion, setPollQuestion] = useState("");
   const [pollDescription, setPollDescription] = useState("");
-  const [pollOptionOne, setPollOptionOne] = useState("");
-  const [pollOptionTwo, setPollOptionTwo] = useState("");
+  const [optionOneDescription, setOptionOneDescription] = useState("");
+  const [optionTwoDescription, setOptionTwoDescription] = useState("");
 
 
   const addPoll = (e) => {
@@ -17,9 +17,31 @@ function PollCreationPage() {
     const pollObject = {
       pollQuestion: pollQuestion,
       pollDescription: pollDescription,
-      pollOptionOne: pollOptionOne,
-      pollOptionTwo: pollOptionTwo
+      pollOptionOne: {
+        optionOneDescription: optionOneDescription,
+        votes: 0
+      },
+      pollOptionTwo: {
+        optionTwoDescription: optionTwoDescription,
+        votes: 0
+      },
+      totalVotes: 0
+
     }
+
+    //Option 1
+      //creating a function that adds 1 to the votes node in firebase
+      //grab the value from firebase, create a function that adds 1
+      //use set() to override the previous number to display the new number
+      //need a function in firebase to pull the vote node and run it in a math function to calculate the percent
+      //need to calculate the total number of votes
+        //also add a +1 function to a totalVotes node in firebase
+      //use a math function to calculate the percentage by pulling the vote option node / total number of votes
+
+    //Option 2
+      //use snapshot to bring total voting data to React
+      //use a count function to count all the child nodes (?) for that particular poll option to generate a number
+      //use the previous number and pass it through a math function to calculate total votes as well as votes for a singular option to generate percent
 
     // Reference the database
     const database = getDatabase(firebase);
@@ -30,8 +52,8 @@ function PollCreationPage() {
 
     setPollQuestion("");
     setPollDescription("");
-    setPollOptionOne("");
-    setPollOptionTwo("");
+    setOptionOneDescription("");
+    setOptionTwoDescription("");
   }
 
   const handleQuestionChange = (e) => {
@@ -41,11 +63,12 @@ function PollCreationPage() {
     setPollDescription(e.target.value);
   };
   const handleOptionOneChange = (e) => {
-    setPollOptionOne(e.target.value);
+    setOptionOneDescription(e.target.value);
   };
   const handleOptionTwoChange = (e) => {
-    setPollOptionTwo(e.target.value);
+    setOptionTwoDescription(e.target.value);
   };
+  
 
   return (
     <div>
@@ -76,7 +99,7 @@ function PollCreationPage() {
           className="poll-input poll-option-one"
           name="poll-option-one"
           placeholder="Option One"
-          value={pollOptionOne}
+          value={optionOneDescription}
           onChange={handleOptionOneChange}
           aria-label="Poll Option One"
         />
@@ -85,7 +108,7 @@ function PollCreationPage() {
           className="poll-input poll-option-two"
           name="poll-option-two"
           placeholder="Option Two"
-          value={pollOptionTwo}
+          value={optionTwoDescription}
           onChange={handleOptionTwoChange}
           aria-label="Poll Option Two"
         />

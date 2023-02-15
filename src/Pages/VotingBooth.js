@@ -3,7 +3,7 @@ import * as React from 'react'
 import firebase from '../Components/Firebase';
 import { useEffect, useState } from 'react';
 import { getDatabase, ref, onValue, update } from 'firebase/database';
-import { useParams, Link } from 'react-router-dom';
+import { useParams, } from 'react-router-dom';
 import VotingConfirmation from '../Components/VotingConfirmation';
 
 function VotingBooth() {
@@ -56,9 +56,8 @@ function VotingBooth() {
     votingObject.totalVotes = votingObject.pollOptionOne.votes + votingObject.pollOptionTwo.votes
 
     const database = getDatabase(firebase);
-   
+  
     const dbRef = ref(database, `/${poll.key}`);
-
     update(dbRef, votingObject);
     
   }

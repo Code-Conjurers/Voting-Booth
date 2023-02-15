@@ -12,7 +12,7 @@ import NavBar from './Components/NavBar';
 import Footer from './Components/Footer';
 
 // CSS
-import './App.scss';
+import './sass/App.scss';
 
 // Mock Components
 

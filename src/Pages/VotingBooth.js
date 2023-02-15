@@ -56,9 +56,8 @@ function VotingBooth() {
     votingObject.totalVotes = votingObject.pollOptionOne.votes + votingObject.pollOptionTwo.votes
 
     const database = getDatabase(firebase);
-   
+  
     const dbRef = ref(database, `/${poll.key}`);
-
     update(dbRef, votingObject);
     
   }

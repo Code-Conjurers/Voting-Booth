@@ -56,9 +56,8 @@ function VotingBooth() {
     votingObject.totalVotes = votingObject.pollOptionOne.votes + votingObject.pollOptionTwo.votes
 
     const database = getDatabase(firebase);
-   
+  
     const dbRef = ref(database, `/${poll.key}`);
-
     update(dbRef, votingObject);
     
   }
@@ -72,7 +71,6 @@ function VotingBooth() {
   
   return (
     <>
-      <h1>Voting Booth for Poll: {boothID}</h1>
       {isSubmitted ?
         < VotingConfirmation boothID={boothID}/> :
         <div className="">
@@ -84,7 +82,6 @@ function VotingBooth() {
                 <React.Fragment key={index}>
                   {poll.key === boothID ?
                     <div>
-                      <h2 >Booth Number: {poll.key}</h2>
                       <h3 >Question: {poll.poll.pollQuestion}</h3>
                       <p>Description: {poll.poll.pollDescription}</p>
                       <form onSubmit={(e)=> {handleSubmitVote (e, poll)} }>

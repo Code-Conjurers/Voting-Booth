@@ -54,7 +54,7 @@ function FindPoll() {
     <>
       <h2>Find a Poll</h2>
       {/* Map through our firebase "Poll Data" and return the poll name & link to the page for each available poll. */}
-      {pollData.map((poll, index) => {
+      {[...pollData].reverse().map((poll, index) => {
         return (
           <>
           <div className="" key={index}>

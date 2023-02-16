@@ -1,6 +1,6 @@
 function ErrorPage() {
   return (
-    <h2>Oh no! Error!</h2>
+    <h2>Oh no! Error, not found!</h2>
   )
 }
 

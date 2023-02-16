@@ -2,55 +2,34 @@ import firebase from "./Firebase";
 import { get, ref, getDatabase  } from 'firebase/database'
 import { useState } from 'react';
 import ProgressBar from "@ramonak/react-progress-bar";
+import { useParams } from 'react-router-dom';
+import Swal from 'sweetalert2';
 // import React from "react";
 
-function ResultsBar(boothID) {
+function ResultsBar() {
+  const {boothID} = useParams()
   // Initialize Firebase
   // const app = initializeApp(firebase);
   // Initialize Database content
   const database = getDatabase(firebase);
   // Once again, we grab a reference to our firebase database.
-  const boothKey = boothID.boothID
+  // const boothKey = boothID.boothID
 
   const [pollQuestion, setPollQuestion] = useState('')
   const [optionOneDescription, setOptionOneDescription] = useState('')
-  const [votesOne, setVotesOne] = useState('')
+  const [votesOne, setVotesOne] = useState()
   const [optionTwoDescription, setOptionTwoDescription] = useState('')
-  const [votesTwo, setVotesTwo] = useState('')
-  const [totalVotes, setTotalVotes] = useState('')
+  const [votesTwo, setVotesTwo] = useState()
+  const [totalVotes, setTotalVotes] = useState()
+  const [voteOnePercent, setVoteOnePercent] = useState();
+  const [voteTwoPercent, setVoteTwoPercent] = useState();
 
-  const dbRef = ref(database, `/${boothKey}`);
+  const dbRef = ref(database, `/${boothID}`);
 
-  
-
-  // We know what we need to do... Calculate shit.
-
-// Poll option one - X
-// function getPercentA(x, y) {
-//   return Math.round((x / (x + y)) * 100);
-// }
-// // Poll option two - Y
-// function getPercentB(x, y) {
-//   return Math.round((y / (x + y)) * 100);
-// }
-
-// console.log(`Poll Option A has ${getPercentA(3, 4)}% of the vote.`);
-// console.log(`Poll Option B has ${getPercentB(3, 4)}% of the vote.`);
-
-  
-
-  // We call the `get` method here to grab the value of our Firebase database.
-  // The get method returns a promise, where we can the return data in a parameter
-  // The parameter is referred to here and in the Google docs as a "snapshot" but could be named whatever we want. 
   get(dbRef).then((snapshot) => {
 
-    
-    // One of the returned values is a method called ".exists()", which will return a boolean value for whether there is a returned value from our "get" function 
-    if (snapshot.exists()) {
-      // We call `.val()` on our snapshot to get the contents of our data. The returned data will be an object that we can  iterate through later
-      // console.log(dbRef)
-      // console.log(snapshot.val())
 
+    if (snapshot.exists()) {
       setPollQuestion(snapshot.val().pollQuestion)
       setOptionOneDescription(snapshot.val().pollOptionOne.optionOneDescription)
       setVotesOne(snapshot.val().pollOptionOne.votes)
@@ -58,13 +37,32 @@ function ResultsBar(boothID) {
       setVotesTwo(snapshot.val().pollOptionTwo.votes)
       setTotalVotes(snapshot.val().totalVotes)
 
+      const voteCounting = function getPercentA(x, y) {
+        return Math.round((x / (x + y)) * 100);
+      }
+      
+      setVoteOnePercent(voteCounting(votesOne, votesTwo))
+      setVoteTwoPercent(voteCounting(votesTwo, votesOne))
+
     } else {
       console.log("No data available")
     }
-  }).catch((error) => {
-    console.log(error)
+  }) .catch(() => {
+    Swal.fire('Sorry, an error has occurred.')
   })
+  return (
+    <>
+      <h2>Poll Question: {pollQuestion}</h2>
+      <h3>Total Votes: {totalVotes}</h3>
+      <p>{optionOneDescription} has {voteOnePercent}% of the vote.</p>
+      <ProgressBar completed={voteOnePercent} bgColor="#E555A5" />
+      <br></br> {/* This is just here to visually break up the 2 polls until we style them. */}
+      <p>{optionTwoDescription} has {voteTwoPercent}% of the vote.</p>
+      <ProgressBar completed={voteTwoPercent} />
+    </>
+  );
 }
+
 
 
 export default ResultsBar;

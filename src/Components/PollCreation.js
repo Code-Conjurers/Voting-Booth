@@ -1,6 +1,7 @@
 import { useState } from "react";
 import firebase from "./Firebase";
 import { getDatabase, ref, push } from "firebase/database"
+import PollConfirmationPage from "./PollConfirmationPage";
 
 function PollCreationPage() {
 
@@ -9,7 +10,7 @@ function PollCreationPage() {
   const [pollDescription, setPollDescription] = useState("");
   const [optionOneDescription, setOptionOneDescription] = useState("");
   const [optionTwoDescription, setOptionTwoDescription] = useState("");
-
+  const [newPollId, setNewPollId] = useState();
 
   const addPoll = (e) => {
     e.preventDefault();
@@ -48,7 +49,11 @@ function PollCreationPage() {
     const dbRef = ref(database);
 
     // Push value of pollObject  to the database
-    push(dbRef, pollObject);
+    push(dbRef, pollObject)
+      .then((newPollRef) => {
+        const pollRef = newPollRef.key
+        setNewPollId(pollRef);
+    });
 
     setPollQuestion("");
     setPollDescription("");
@@ -69,7 +74,7 @@ function PollCreationPage() {
     setOptionTwoDescription(e.target.value);
   };
   
-
+  console.log(newPollId);
   return (
     <div>
       <h2>Create A Poll</h2>
@@ -115,6 +120,8 @@ function PollCreationPage() {
         <button aria-label="create poll" onClick={addPoll}>Submit</button>
       </form>
       <button>Go Back</button>
+
+      <PollConfirmationPage pollId={newPollId}/>
     </div>
   )
 }

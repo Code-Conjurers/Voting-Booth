@@ -5,7 +5,6 @@ function CreatePoll() {
   return (
     <>
       <PollCreationPage />
-      <PollConfirmationPage />
     </>
   )
 }

@@ -1,4 +1,5 @@
 import firebase from '../Components/Firebase';
+import Swal from 'sweetalert2';
 import { getDatabase, ref, onValue, remove } from 'firebase/database'
 import { useState, useEffect } from 'react';
 import { Link } from "react-router-dom";
@@ -6,7 +7,6 @@ import { Link } from "react-router-dom";
 function FindPoll() {
   // Defining State
   const [pollData, setPollData] = useState([]);
-  const [deletePoll, setDeletePoll] = useState();
   const [dbState, setDbState] = useState();
   // Firebase Connection
   useEffect(() => {
@@ -17,7 +17,6 @@ function FindPoll() {
     setDbState(database);
     // get database info on load or on change
     // use event listener onValue
-    
     onValue(dbRef, (response) => {
       // create an empty array
       const newState = [];
@@ -30,23 +29,31 @@ function FindPoll() {
       }
       //  set state to match no-longer-empty array
       setPollData(newState);
-
-      // const deleteFunction = (key) => {
-      //   const keyRef = ref(database, `/${key}`);
-      //   remove(keyRef);
-      // }
-      // setDeletePoll(deleteFunction);
     }// end of onValue
     )//end of onValue
-
   }, []) //end of useEffect
 
-  function deleteFunction(key){
+  function deleteFunction(key) {
     const keyRef = ref(dbState, `/${key}`);
-    remove(keyRef);
+    Swal.fire({
+      title: 'Are you sure?',
+      text: "You won't be able to revert this!",
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Yes, delete it!'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        Swal.fire(
+          'Deleted!',
+          'Your file has been deleted.',
+          'success'
+        )
+        remove(keyRef);
+      }
+    })
   }
-  // setDeletePoll(deleteFunction);
-
 
   console.log(pollData);
 
@@ -57,17 +64,16 @@ function FindPoll() {
       {[...pollData].reverse().map((poll, index) => {
         return (
           <>
-          <div className="" key={index}>
-            <h2>{poll.key}</h2>
-            <p>Question: {poll.poll.pollQuestion}</p>
-            <p>Description: {poll.poll.pollDescription}</p>
-            <Link to={`/votingbooth/${poll.key}`}> Voting Booth</Link>
-            <Link to={`/results/${poll.key}`}></Link>
-            <button onClick={() => deleteFunction(poll.key)}> Remove </button>
-          </div>
+            <div className="" key={index}>
+              <h2>{poll.key}</h2>
+              <p>Question: {poll.poll.pollQuestion}</p>
+              <p>Description: {poll.poll.pollDescription}</p>
+              <Link to={`/votingbooth/${poll.key}`}> Voting Booth</Link>
+              <Link to={`/results/${poll.key}`}></Link>
+              <button onClick={() => deleteFunction(poll.key)}> Remove </button>
+            </div>
           </>
         )
-        
       })}
     </>
   )

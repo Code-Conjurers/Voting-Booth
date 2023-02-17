@@ -57,7 +57,7 @@ function PollCreationPage() {
       .then((newPollRef) => {
         const pollRef = newPollRef.key
         setNewPollId(pollRef);
-    });
+      });
     setIsSubmitted(true);
     setPollQuestion("");
     setPollDescription("");
@@ -77,63 +77,63 @@ function PollCreationPage() {
   const handleOptionTwoChange = (e) => {
     setOptionTwoDescription(e.target.value);
   };
-  
-  
+
+
   return (
     <>
-    
+
       <h2>Create A Poll</h2>
       {isSubmitted ?
-      <PollConfirmationPage pollId={newPollId}/> :
-      <div className="">
-        {
-        <>
-        <form>
-          <input
-            type="text"
-            className="poll-input poll-question"
-            name="poll-question"
-            placeholder="Poll Question"
-            value={pollQuestion}
-            onChange={handleQuestionChange}
-            aria-label="Poll Question"
-          />
-          <textarea
-            className="poll-input poll-description"
-            name="poll-description"
-            placeholder="Poll Description"
-            value={pollDescription}
-            onChange={handleDescriptionChange}
-            aria-label="Poll Description"
-          ></textarea>
+        <PollConfirmationPage pollId={newPollId} /> :
+        <div className="">
+          {
+            <>
+              <form>
+                <input
+                  type="text"
+                  className="poll-input poll-question"
+                  name="poll-question"
+                  placeholder="Poll Question"
+                  value={pollQuestion}
+                  onChange={handleQuestionChange}
+                  aria-label="Poll Question"
+                />
+                <textarea
+                  className="poll-input poll-description"
+                  name="poll-description"
+                  placeholder="Poll Description"
+                  value={pollDescription}
+                  onChange={handleDescriptionChange}
+                  aria-label="Poll Description"
+                ></textarea>
 
-          <h2>Enter your polling options:</h2>
+                <h2>Enter your polling options:</h2>
 
-          <input
-            type="text"
-            className="poll-input poll-option-one"
-            name="poll-option-one"
-            placeholder="Option One"
-            value={optionOneDescription}
-            onChange={handleOptionOneChange}
-            aria-label="Poll Option One"
-          />
-          <input
-            type="text"
-            className="poll-input poll-option-two"
-            name="poll-option-two"
-            placeholder="Option Two"
-            value={optionTwoDescription}
-            onChange={handleOptionTwoChange}
-            aria-label="Poll Option Two"
-          />
-          <button aria-label="create poll" onClick={addPoll}>Submit</button>
-        </form>
-        <button>Go Back</button>
-        </>
-        } 
-      </div>}
-      
+                <input
+                  type="text"
+                  className="poll-input poll-option-one"
+                  name="poll-option-one"
+                  placeholder="Option One"
+                  value={optionOneDescription}
+                  onChange={handleOptionOneChange}
+                  aria-label="Poll Option One"
+                />
+                <input
+                  type="text"
+                  className="poll-input poll-option-two"
+                  name="poll-option-two"
+                  placeholder="Option Two"
+                  value={optionTwoDescription}
+                  onChange={handleOptionTwoChange}
+                  aria-label="Poll Option Two"
+                />
+                <button aria-label="create poll" onClick={addPoll}>Submit</button>
+              </form>
+              <button>Go Back</button>
+            </>
+          }
+        </div>}
+
     </>
   )
 }

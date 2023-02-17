@@ -1,0 +1,12 @@
+@use './variables' as *;
+@use './mixins' as *;
+
+html {
+  font-size: $fs-global
+}
+
+a, 
+p,
+button {
+  font-size: $fs-default;
+}

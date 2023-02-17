@@ -6,11 +6,19 @@
 .home-graphic {
   display: flex;
   justify-content: center;
-  
 
   img {
     width: 100%;
     height: auto;
     flex-basis: 50%;
+  }
+}
+
+.home-button-box {
+  display: flex;
+  justify-content: center;
+  margin-top: 3%;
+  a {
+    margin: 2% 5%;
   }
 }

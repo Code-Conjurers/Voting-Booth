@@ -18,20 +18,23 @@ import './App.scss';
 function App() {
 
   return (
-    <div className="App">
+    <div className="app wrapper">
       <header>
         <NavBar />
+        <div className="header-h1">
         <h1>Voting Booth App</h1>
+        </div>
       </header>
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/createpoll" element={<CreatePoll />} />
-        <Route path="/findpoll" element={<FindPoll />} />
-        <Route path="/votingbooth/:boothID" element={<VotingBooth />} />
-        <Route path="/results/:boothID" element={<Results />} />
-
-        <Route path="*" element={<ErrorPage />} />
-      </Routes>
+      <main>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/createpoll" element={<CreatePoll />} />
+          <Route path="/findpoll" element={<FindPoll />} />
+          <Route path="/votingbooth/:boothID" element={<VotingBooth />} />
+          <Route path="/results/:boothID" element={<Results />} />
+          <Route path="*" element={<ErrorPage />} />
+        </Routes>
+      </main>
       <Footer />
     </div>
   );

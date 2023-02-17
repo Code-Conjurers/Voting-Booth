@@ -4,9 +4,16 @@
 // Default Styles
 
 * {
-  margin: 0 auto;
+  margin: 0;
   padding: 0;
-  color: $white;
+  color: $dark-purple;
+  // border: 1px solid pink;
+}
+
+.wrapper {
+  width: 85%;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
 img {
@@ -14,7 +21,7 @@ img {
   width: 100%;
 }
 
-fieldset, 
+fieldset,
 button {
   border: none;
 }
@@ -23,31 +30,32 @@ ul {
   list-style: none;
 }
 
-
-
 a,
 button {
   display: inline-block;
   text-decoration: none;
-  color: $pink;
+  color: $dark-purple;
   transition: 300ms;
+
+  &:hover,
+  &:focus {
+    color: $pink;
+  }
+
 
   &.button {
     padding: 10px 20px;
     border-radius: 20px;
+    font-weight: $fw-bold;
 
     &.primary {
       background-color: $yellow;
       color: $dark-purple;
 
-      &:visited {
-        color: $dark-purple;
-      }
-
       &:hover,
       &:focus {
-        background-color: $white;
-        color: $pink;
+        background-color: $med-purple;
+        color: $white;
       }
 
     }
@@ -56,37 +64,40 @@ button {
       background-color: $pink;
       color: $dark-purple;
 
-      &:visited {
-        color: $dark-purple;
-      }
-
       &:hover,
       &:focus {
-        background-color: $white;
-        color: $pink;
+        background-color: $med-purple;
+        color: $white;
       }
     }
 
   }
+}
 
-  &:visited {
-    color: $pink;
-  }
 
-  &:hover,
-  &:focus {
-    color: $white;
-  }
+html {
+  background-color: $white;
+}
 
+// Put into their own stylesheet?
+
+.app {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+header {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center
 }
 
 
 h1 {
   @include heading($fs-xl);
-}
-
-.App {
-  background-color: $dark-purple;
-  height: 100vh;
-
+  margin: 10% 0 5% 0;
+  text-align: center;
 }

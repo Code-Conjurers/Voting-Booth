@@ -1,0 +1,25 @@
+@use './variables' as *;
+@use './mixins' as *;
+
+.create-poll-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border: 2px solid $pink;
+  border-radius: 20px;
+  width: 60%;
+  margin: 0 auto;
+  padding: 3%;
+
+  .poll-input{
+    width: 100%;
+    padding: 1%;
+    margin: 1% 0;
+    border: 1px solid $light-purple;
+  }
+
+  .poll-description {
+    min-height: 250px;
+  }
+}

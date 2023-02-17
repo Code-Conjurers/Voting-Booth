@@ -22,7 +22,7 @@ function App() {
       <header>
         <NavBar />
         <div className="header-h1">
-        <h1>Voting Booth App</h1>
+        <h1>Whatever Floats Your Vote</h1>
         </div>
       </header>
       <main>

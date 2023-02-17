@@ -26,6 +26,10 @@ button {
   border: none;
 }
 
+textarea {
+  resize: none;
+}
+
 ul {
   list-style: none;
 }
@@ -74,7 +78,6 @@ button {
   }
 }
 
-
 html {
   background-color: $white;
 }
@@ -96,8 +99,3 @@ header {
 }
 
 
-h1 {
-  @include heading($fs-xl);
-  margin: 10% 0 5% 0;
-  text-align: center;
-}

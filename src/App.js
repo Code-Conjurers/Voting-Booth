@@ -12,7 +12,7 @@ import Footer from './Components/Footer';
 import Home from './Pages/Home';
 
 // CSS
-import './sass/App.scss';
+import './App.scss';
 
 // Mock Components
 

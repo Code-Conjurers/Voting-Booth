@@ -1,0 +1,14 @@
+@use './variables' as *;
+@use './mixins' as *;
+
+* {
+  color: $dark-purple;
+}
+
+h1 {
+  @include heading($fs-3xl);
+}
+
+.App {
+  background-color: $white;
+}

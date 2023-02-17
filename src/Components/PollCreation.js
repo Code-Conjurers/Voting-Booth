@@ -1,10 +1,12 @@
 import { useState } from "react";
 import firebase from "./Firebase";
-import { getDatabase, ref, push } from "firebase/database"
-import PollConfirmationPage from "./PollConfirmationPage";
+import { getDatabase, ref, push } from "firebase/database";
+import { Link } from "react-router-dom";
+import PollConfirmation from "./PollConfirmation";
+import FindPoll from "../Pages/FindPoll";
 import Swal from 'sweetalert2';
 
-function PollCreationPage() {
+function PollCreation() {
 
   // const [pollData, setPollData] = useState([]);
   const [pollQuestion, setPollQuestion] = useState("");
@@ -84,7 +86,7 @@ function PollCreationPage() {
 
       <h2>Create A Poll</h2>
       {isSubmitted ?
-        <PollConfirmationPage pollId={newPollId} /> :
+        <PollConfirmation pollId={newPollId} /> :
         <div className="">
           {
             <>
@@ -127,9 +129,9 @@ function PollCreationPage() {
                   onChange={handleOptionTwoChange}
                   aria-label="Poll Option Two"
                 />
-                <button aria-label="create poll" onClick={addPoll}>Submit</button>
+                <button className="button primary" aria-label="create poll" onClick={addPoll}>Submit</button>
               </form>
-              <button>Go Back</button>
+              <Link to={`/findpoll`} element={<FindPoll />} className="button secondary"> Find A Poll</Link>
             </>
           }
         </div>}
@@ -139,4 +141,4 @@ function PollCreationPage() {
 }
 
 
-export default PollCreationPage;
+export default PollCreation;

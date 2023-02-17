@@ -68,9 +68,9 @@ function FindPoll() {
               <h2>{poll.key}</h2>
               <p>Question: {poll.poll.pollQuestion}</p>
               <p>Description: {poll.poll.pollDescription}</p>
-              <Link to={`/votingbooth/${poll.key}`}> Voting Booth</Link>
-              <Link to={`/results/${poll.key}`}></Link>
-              <button onClick={() => deleteFunction(poll.key)}> Remove </button>
+              <Link className="button primary" to={`/votingbooth/${poll.key}`}> Voting Booth</Link>
+              <Link className="button secondary" to={`/results/${poll.key}`}>See Results</Link>
+              <button className="button secondary" onClick={() => deleteFunction(poll.key)}> Remove </button>
             </div>
           </>
         )

@@ -1,9 +1,9 @@
-import PollCreationPage from '../Components/PollCreation';
+import PollCreation from '../Components/PollCreation';
 
 function CreatePoll() {
   return (
     <>
-      <PollCreationPage />
+      <PollCreation />
     </>
   )
 }

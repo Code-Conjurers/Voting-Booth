@@ -1,12 +1,16 @@
 import CreatePoll from "./CreatePoll";
 import FindPoll from "./FindPoll";
 import { Link } from "react-router-dom";
+import HomeGraphic from "../assets/voting-home-graphic.svg"
 
 function Home() {
     return (
         <>
-        <Link to={`/createpoll`} element={<CreatePoll />}> Create A Poll</Link>
-        <Link to={`/findpoll`} element={<FindPoll />}> Find A Poll</Link>
+            <div className="home-graphic">
+                <img src={HomeGraphic} alt="Illustration of people putting a ballot into a voting box." />
+            </div>
+            <Link to={`/createpoll`} element={<CreatePoll />} className="button primary"> Create A Poll</Link>
+            <Link to={`/findpoll`} element={<FindPoll />} className="button secondary"> Find A Poll</Link>
         </>
     )
 }

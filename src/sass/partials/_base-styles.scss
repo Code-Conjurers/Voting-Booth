@@ -1,14 +1,92 @@
 @use './variables' as *;
 @use './mixins' as *;
 
+// Default Styles
+
 * {
-  color: $dark-purple;
+  margin: 0 auto;
+  padding: 0;
+  color: $white;
 }
 
+img {
+  height: auto;
+  width: 100%;
+}
+
+fieldset, 
+button {
+  border: none;
+}
+
+ul {
+  list-style: none;
+}
+
+
+
+a,
+button {
+  display: inline-block;
+  text-decoration: none;
+  color: $pink;
+  transition: 300ms;
+
+  &.button {
+    padding: 10px 20px;
+    border-radius: 20px;
+
+    &.primary {
+      background-color: $yellow;
+      color: $dark-purple;
+
+      &:visited {
+        color: $dark-purple;
+      }
+
+      &:hover,
+      &:focus {
+        background-color: $white;
+        color: $pink;
+      }
+
+    }
+
+    &.secondary {
+      background-color: $pink;
+      color: $dark-purple;
+
+      &:visited {
+        color: $dark-purple;
+      }
+
+      &:hover,
+      &:focus {
+        background-color: $white;
+        color: $pink;
+      }
+    }
+
+  }
+
+  &:visited {
+    color: $pink;
+  }
+
+  &:hover,
+  &:focus {
+    color: $white;
+  }
+
+}
+
+
 h1 {
-  @include heading($fs-3xl);
+  @include heading($fs-xl);
 }
 
 .App {
-  background-color: $white;
+  background-color: $dark-purple;
+  height: 100vh;
+
 }

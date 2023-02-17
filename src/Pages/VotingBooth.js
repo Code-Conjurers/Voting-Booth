@@ -4,7 +4,7 @@ import firebase from '../Components/Firebase';
 import Swal from 'sweetalert2';
 import { useEffect, useState } from 'react';
 import { getDatabase, ref, onValue, update } from 'firebase/database';
-import { useParams, } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import VotingConfirmation from '../Components/VotingConfirmation';
 
 function VotingBooth() {
@@ -96,10 +96,10 @@ function VotingBooth() {
                           <input type="radio" id="option-one" name="choice" value="pollOptionOne" />
                           <label htmlFor="option-two">{poll.poll.pollOptionTwo.optionTwoDescription}</label>
                           <input type="radio" id="option-two" name="choice" value="pollOptionTwo" />
-                          <button type="submit"> Submit</button>
+                          <button className='button primary' type="submit"> Submit</button>
                         </fieldset>
                       </form>
-                      <button onClick={() => navigator.clipboard.writeText(`whatever-floats-your-vote.netlify.app/votingbooth/${boothID}`)}>Copy poll link</button>
+                      <button className='button secondary' aria-label='Copy poll link to keyboard.' onClick={() => navigator.clipboard.writeText(`whatever-floats-your-vote.netlify.app/votingbooth/${boothID}`)}>Copy Poll Link</button>
                     </div>
                     : null}
                 </React.Fragment>

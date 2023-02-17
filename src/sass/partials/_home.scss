@@ -1,0 +1,16 @@
+@use './variables' as *;
+@use './mixins' as *;
+
+// Home Page Styles
+
+.home-graphic {
+  display: flex;
+  justify-content: center;
+  
+
+  img {
+    width: 100%;
+    height: auto;
+    flex-basis: 50%;
+  }
+}

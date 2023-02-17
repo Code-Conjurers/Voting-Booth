@@ -14,23 +14,24 @@ import Home from './Pages/Home';
 // CSS
 import './App.scss';
 
-// Mock Components
 
 function App() {
 
   return (
     <div className="App">
-      <NavBar />
-      <h1>Voting Booth App</h1>
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/createpoll" element={<CreatePoll />} />
-          <Route path="/findpoll" element={<FindPoll />} />
-          <Route path="/votingbooth/:boothID" element={<VotingBooth />} />
-          <Route path="/results/:boothID" element={<Results />} />
+      <header>
+        <NavBar />
+        <h1>Voting Booth App</h1>
+      </header>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/createpoll" element={<CreatePoll />} />
+        <Route path="/findpoll" element={<FindPoll />} />
+        <Route path="/votingbooth/:boothID" element={<VotingBooth />} />
+        <Route path="/results/:boothID" element={<Results />} />
 
-          <Route path="*" element={<ErrorPage />} />
-        </Routes>
+        <Route path="*" element={<ErrorPage />} />
+      </Routes>
       <Footer />
     </div>
   );

@@ -93,6 +93,7 @@ function VotingBooth() {
                           <button type="submit"> Submit</button>
                         </fieldset>
                       </form>
+                      <button onClick={() => navigator.clipboard.writeText(`whatever-floats-your-vote.netlify.app/votingbooth/${boothID}`)}>Copy poll link</button>
                     </div>
                     : null}
                 </React.Fragment>

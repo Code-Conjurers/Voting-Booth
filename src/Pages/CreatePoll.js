@@ -1,11 +1,8 @@
-import PollCreationPage from '../Components/PollCreation';
-import PollConfirmationPage from '../Components/PollConfirmationPage';
+import PollCreation from '../Components/PollCreation';
 
 function CreatePoll() {
   return (
-    <>
-      <PollCreationPage />
-    </>
+      <PollCreation />
   )
 }
 

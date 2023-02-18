@@ -17,9 +17,9 @@ function ResultsBar() {
 
   const [pollQuestion, setPollQuestion] = useState('')
   const [optionOneDescription, setOptionOneDescription] = useState('')
-  const [votesOne, setVotesOne] = useState()
+  const [votesOne, setVotesOne] = useState(0)
   const [optionTwoDescription, setOptionTwoDescription] = useState('')
-  const [votesTwo, setVotesTwo] = useState()
+  const [votesTwo, setVotesTwo] = useState(0)
   const [totalVotes, setTotalVotes] = useState()
   const [voteOnePercent, setVoteOnePercent] = useState();
   const [voteTwoPercent, setVoteTwoPercent] = useState();
@@ -27,8 +27,6 @@ function ResultsBar() {
   const dbRef = ref(database, `/${boothID}`);
 
   get(dbRef).then((snapshot) => {
-
-
     if (snapshot.exists()) {
       setPollQuestion(snapshot.val().pollQuestion)
       setOptionOneDescription(snapshot.val().pollOptionOne.optionOneDescription)
@@ -47,7 +45,7 @@ function ResultsBar() {
     } else {
       console.log("No data available")
     }
-  }) .catch(() => {
+  }).catch(() => {
     Swal.fire('Sorry, an error has occurred.')
   })
   return (

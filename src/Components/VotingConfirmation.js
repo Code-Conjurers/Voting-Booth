@@ -9,7 +9,7 @@ function VotingConfirmation () {
     <>
     <div className="component-invisible" >
     <h2>Your vote has been recorded!</h2>
-      <Link to={`/results/${boothID}`}>View Results</Link>
+      <Link className='button primary' to={`/results/${boothID}`}>View Results</Link>
     </div>
     </>
   )

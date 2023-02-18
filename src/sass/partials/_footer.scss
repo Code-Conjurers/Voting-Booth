@@ -1,0 +1,16 @@
+@use './variables' as *;
+@use './mixins' as *;
+
+footer {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 3%;
+  a {
+    color: $light-purple;
+    transition: 300ms;
+    &:hover,
+    &:focus {
+      color: $pink;
+    }
+  }
+}

@@ -43,7 +43,6 @@ function VotingBooth() {
     e.preventDefault();
 
     setIsSubmitted(true);
-    console.log(poll);
     const votingObject = {
       ...poll.poll,
     };
@@ -54,6 +53,14 @@ function VotingBooth() {
     } else if (getValue === 'pollOptionTwo') {
       votingObject.pollOptionTwo.votes = votingObject.pollOptionTwo.votes + 1;
       votingObject.totalVotes = votingObject.pollOptionOne.votes + votingObject.pollOptionTwo.votes;
+    } else if (getValue === "copy"){
+      // Alert the link is copied
+      Swal.fire({
+        icon: "success",
+        text: 'Link is copied to your clipboard!',
+      });
+      setIsSubmitted(false);
+      return;
     } else {
       // Alert the user if no vote was submitted
       Swal.fire({
@@ -74,8 +81,19 @@ function VotingBooth() {
     setGetValue(e.target.value);
   }
 
+  function clickHandler(e, poll){
+    e.preventDefault();
 
+    navigator.clipboard.writeText(`whatever-floats-your-vote.netlify.app/votingbooth/${poll.key}`)
 
+    Swal.fire({
+      icon: "success",
+      text: 'Link is copied to your clipboard!',
+    });
+    
+    setIsSubmitted(false);
+    return;
+  }
 
   return (
     <>
@@ -110,7 +128,7 @@ function VotingBooth() {
                           <button className='button primary' type="submit"> Submit</button>
 
                           <div className="secondary-buttons">
-                            <button className='button secondary' aria-label='Copy poll link to keyboard.' onClick={() => navigator.clipboard.writeText(`whatever-floats-your-vote.netlify.app/votingbooth/${boothID}`)}>Copy Poll Link</button>
+                            <button className='button secondary' aria-label='Copy poll link to keyboard.' value="copy" onClick={(e) => {clickHandler(e, poll)}}>Copy Poll Link</button>
                             <Link className="button secondary" to={`/results/${boothID}`}>See Results Only</Link>
                           </div>
                           

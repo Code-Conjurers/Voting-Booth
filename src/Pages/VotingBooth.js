@@ -88,9 +88,10 @@ function VotingBooth() {
 
     Swal.fire({
       icon: "success",
-      text: 'Link is copied to your clipboard!',
+      text: 'Link copied!',
+      timer: 1500
     });
-    
+
     setIsSubmitted(false);
     return;
   }
@@ -125,6 +126,7 @@ function VotingBooth() {
                           
                         </fieldset>
                         <div className="button-container">
+
                           <button className='button primary' type="submit"> Submit</button>
 
                           <div className="secondary-buttons">

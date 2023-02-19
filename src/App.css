@@ -486,3 +486,20 @@ h2 {
 .button-container .secondary-buttons button {
   margin-right: 10px;
 }
+
+.confirmation-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.confirmation-container img {
+  height: auto;
+  max-width: 40%;
+}
+.confirmation-container h2 {
+  margin: 25px 0 15px;
+}
+.confirmation-container a {
+  margin-bottom: 30px;
+}

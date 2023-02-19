@@ -6,6 +6,8 @@ import { useEffect, useState } from 'react';
 import { getDatabase, ref, onValue, update } from 'firebase/database';
 import { useParams } from 'react-router-dom';
 import VotingConfirmation from '../Components/VotingConfirmation';
+import { Link } from "react-router-dom";
+import votingImage from '../assets/voting-booth.png'
 
 function VotingBooth() {
   // Defining State
@@ -66,7 +68,7 @@ function VotingBooth() {
     const database = getDatabase(firebase);
     const dbRef = ref(database, `/${poll.key}`);
     update(dbRef, votingObject);
-  }
+  } 
 
   function onChangeValue(e) {
     setGetValue(e.target.value);
@@ -79,27 +81,41 @@ function VotingBooth() {
     <>
       {isSubmitted ?
         < VotingConfirmation boothID={boothID} /> :
-        <div className="">
+        <div>
           {
             pollData.map((poll, index) => {
-              // console.log(boothID);
-              // console.log(poll.key)
               return (
                 <React.Fragment key={index}>
                   {poll.key === boothID ?
-                    <div>
-                      <h3 >Question: {poll.poll.pollQuestion}</h3>
-                      <p>Description: {poll.poll.pollDescription}</p>
+                    <div className="voting-booth-container">
+                      <img src={votingImage} alt="Group of people voting digitally on a monitor"/>
+                      <div className="voting-question">
+                        <h3>Question <span className="poll-heading">{poll.poll.pollQuestion}</span></h3>
+                        <p>Description: {poll.poll.pollDescription}</p>
+                      </div>
                       <form onSubmit={(e) => { handleSubmitVote(e, poll) }}>
-                        <fieldset onChange={onChangeValue}>
-                          <label htmlFor="option-one">{poll.poll.pollOptionOne.optionOneDescription}</label>
-                          <input type="radio" id="option-one" name="choice" value="pollOptionOne" />
-                          <label htmlFor="option-two">{poll.poll.pollOptionTwo.optionTwoDescription}</label>
-                          <input type="radio" id="option-two" name="choice" value="pollOptionTwo" />
-                          <button className='button primary' type="submit"> Submit</button>
+                        <fieldset onChange={onChangeValue} className="voting-form">
+                          <div className="selection-container">
+                            <input type="radio" id="option-one" name="choice" value="pollOptionOne" />
+                            <label htmlFor="option-one">{poll.poll.pollOptionOne.optionOneDescription}</label>
+                          </div>
+
+                          <div className="selection-container">
+                            <input type="radio" id="option-two" name="choice" value="pollOptionTwo" />
+                            <label htmlFor="option-two">{poll.poll.pollOptionTwo.optionTwoDescription}</label>
+                          </div>
+                          
                         </fieldset>
+                        <div className="button-container">
+                          <button className='button primary' type="submit"> Submit</button>
+
+                          <div className="secondary-buttons">
+                            <button className='button secondary' aria-label='Copy poll link to keyboard.' onClick={() => navigator.clipboard.writeText(`whatever-floats-your-vote.netlify.app/votingbooth/${boothID}`)}>Copy Poll Link</button>
+                            <Link className="button secondary" to={`/results/${boothID}`}>See Results Only</Link>
+                          </div>
+                          
+                        </div>
                       </form>
-                      <button className='button secondary' aria-label='Copy poll link to keyboard.' onClick={() => navigator.clipboard.writeText(`whatever-floats-your-vote.netlify.app/votingbooth/${boothID}`)}>Copy Poll Link</button>
                     </div>
                     : null}
                 </React.Fragment>
@@ -112,10 +128,3 @@ function VotingBooth() {
 }
 
 export default VotingBooth;
-
-// const handleVoteChange = (e) => {
-
-//   };
-//   const handleTotalVoteChange = (e) => {
-
-//   };

@@ -1,0 +1,31 @@
+@use './variables' as *;
+@use './mixins' as *;
+
+html {
+  font-size: $fs-global;
+  color: $dark-purple;
+}
+
+a, 
+p,
+button {
+  font-size: $fs-default;
+}
+
+
+h1 {
+  @include heading($fs-med);
+  margin: 0;
+
+}
+
+h2 {
+  @include heading($fs-xl);
+  margin: 5% 0 5% 0;
+  text-align: center;
+}
+
+.poll-input {
+  font-size: $fs-default;
+  color: $med-purple;
+}

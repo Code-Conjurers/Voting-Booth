@@ -12,25 +12,27 @@ import Footer from './Components/Footer';
 import Home from './Pages/Home';
 
 // CSS
-import './sass/App.scss';
+import './App.scss';
 
-// Mock Components
 
 function App() {
 
   return (
-    <div className="App">
-      <NavBar />
-      <h1>Voting Booth App</h1>
+    <div className="app wrapper">
+      <header>
+        <NavBar />
+        
+      </header>
+      <main>
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/createpoll" element={<CreatePoll />} />
           <Route path="/findpoll" element={<FindPoll />} />
           <Route path="/votingbooth/:boothID" element={<VotingBooth />} />
           <Route path="/results/:boothID" element={<Results />} />
-
           <Route path="*" element={<ErrorPage />} />
         </Routes>
+      </main>
       <Footer />
     </div>
   );

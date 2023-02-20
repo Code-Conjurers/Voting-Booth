@@ -1,12 +1,15 @@
 import firebase from '../Components/Firebase';
+import Swal from 'sweetalert2';
 import { getDatabase, ref, onValue, remove } from 'firebase/database'
 import { useState, useEffect } from 'react';
 import { Link } from "react-router-dom";
+import { FaTimesCircle } from 'react-icons/fa'
+import CreatePoll from './CreatePoll';
+import SearchGraphic from "../assets/search-graphic-undraw.svg"
 
 function FindPoll() {
   // Defining State
   const [pollData, setPollData] = useState([]);
-  const [deletePoll, setDeletePoll] = useState();
   const [dbState, setDbState] = useState();
   // Firebase Connection
   useEffect(() => {
@@ -17,7 +20,6 @@ function FindPoll() {
     setDbState(database);
     // get database info on load or on change
     // use event listener onValue
-    
     onValue(dbRef, (response) => {
       // create an empty array
       const newState = [];
@@ -30,46 +32,60 @@ function FindPoll() {
       }
       //  set state to match no-longer-empty array
       setPollData(newState);
-
-      // const deleteFunction = (key) => {
-      //   const keyRef = ref(database, `/${key}`);
-      //   remove(keyRef);
-      // }
-      // setDeletePoll(deleteFunction);
     }// end of onValue
     )//end of onValue
-
   }, []) //end of useEffect
 
-  function deleteFunction(key){
+  function deleteFunction(key) {
     const keyRef = ref(dbState, `/${key}`);
-    remove(keyRef);
+    Swal.fire({
+      title: 'Are you sure?',
+      text: "You won't be able to revert this!",
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#d33',
+      cancelButtonColor: '#724E91',
+      confirmButtonText: 'Yes, delete it!'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        Swal.fire(
+          'Deleted!',
+          'Your file has been deleted.',
+          'success'
+        )
+        remove(keyRef);
+      }
+    })
   }
-  // setDeletePoll(deleteFunction);
-
 
   console.log(pollData);
 
   return (
-    <>
+    <section className='find-poll-section'>
       <h2>Find a Poll</h2>
       {/* Map through our firebase "Poll Data" and return the poll name & link to the page for each available poll. */}
       {[...pollData].reverse().map((poll, index) => {
         return (
           <>
-          <div className="" key={index}>
-            <h2>{poll.key}</h2>
-            <p>Question: {poll.poll.pollQuestion}</p>
-            <p>Description: {poll.poll.pollDescription}</p>
-            <Link to={`/votingbooth/${poll.key}`}> Voting Booth</Link>
-            <Link to={`/results/${poll.key}`}></Link>
-            <button onClick={() => deleteFunction(poll.key)}> Remove </button>
-          </div>
+            <div className="find-poll-container" key={index}>
+              <h3>{poll.poll.pollQuestion}</h3>
+              <div className="find-poll-links">
+                <Link className="button primary" to={`/votingbooth/${poll.key}`}> Voting Booth</Link>
+                <Link className="button secondary" to={`/results/${poll.key}`}>See Results</Link>
+              </div>
+              <button className='delete-button' onClick={() => deleteFunction(poll.key)}><FaTimesCircle className='delete-button-icon' aria-label='Delete Poll' /></button>
+            </div>
           </>
         )
-        
       })}
-    </>
+      <div className="find-poll-container no-poll-container">
+          <h3>That's all for now...</h3>
+        <div className="find-poll-img">
+          <img src={SearchGraphic} alt="Illustration of person holding a magnifying glass and searching a document." />
+        </div>
+        <Link to={`/createpoll`} element={<CreatePoll />} className="button primary"> Create A Poll</Link>
+      </div>
+    </section>
   )
 };
 

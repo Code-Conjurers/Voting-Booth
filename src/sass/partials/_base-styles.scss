@@ -1,0 +1,101 @@
+@use './variables' as *;
+@use './mixins' as *;
+
+// Default Styles
+
+* {
+  margin: 0;
+  padding: 0;
+  // color: $dark-purple;
+  // border: 1px solid pink;
+}
+
+.wrapper {
+  width: 85%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+img {
+  height: auto;
+  width: 100%;
+}
+
+fieldset,
+button {
+  border: none;
+}
+
+textarea {
+  resize: none;
+}
+
+ul {
+  list-style: none;
+}
+
+a,
+button {
+  display: inline-block;
+  text-decoration: none;
+  color: $dark-purple;
+  transition: 300ms;
+
+  &:hover,
+  &:focus {
+    color: $pink;
+  }
+
+
+  &.button {
+    padding: 10px 20px;
+    border-radius: 20px;
+    font-weight: $fw-bold;
+
+    &.primary {
+      background-color: $yellow;
+      color: $dark-purple;
+
+      &:hover,
+      &:focus {
+        background-color: $med-purple;
+        color: $white;
+      }
+
+    }
+
+    &.secondary {
+      background-color: $pink;
+      color: $dark-purple;
+
+      &:hover,
+      &:focus {
+        background-color: $med-purple;
+        color: $white;
+      }
+    }
+
+  }
+}
+
+html {
+  background-color: $white;
+}
+
+// Put into their own stylesheet?
+
+.app {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+header {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center
+}
+
+

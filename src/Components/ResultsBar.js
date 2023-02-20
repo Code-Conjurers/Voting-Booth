@@ -17,9 +17,9 @@ function ResultsBar() {
 
   const [pollQuestion, setPollQuestion] = useState('')
   const [optionOneDescription, setOptionOneDescription] = useState('')
-  const [votesOne, setVotesOne] = useState()
+  const [votesOne, setVotesOne] = useState(0)
   const [optionTwoDescription, setOptionTwoDescription] = useState('')
-  const [votesTwo, setVotesTwo] = useState()
+  const [votesTwo, setVotesTwo] = useState(0)
   const [totalVotes, setTotalVotes] = useState()
   const [voteOnePercent, setVoteOnePercent] = useState();
   const [voteTwoPercent, setVoteTwoPercent] = useState();
@@ -27,8 +27,6 @@ function ResultsBar() {
   const dbRef = ref(database, `/${boothID}`);
 
   get(dbRef).then((snapshot) => {
-
-
     if (snapshot.exists()) {
       setPollQuestion(snapshot.val().pollQuestion)
       setOptionOneDescription(snapshot.val().pollOptionOne.optionOneDescription)
@@ -47,18 +45,24 @@ function ResultsBar() {
     } else {
       console.log("No data available")
     }
-  }) .catch(() => {
+  }).catch(() => {
     Swal.fire('Sorry, an error has occurred.')
   })
-  return (
+   return (
     <>
-      <h2>Poll Question: {pollQuestion}</h2>
-      <h3>Total Votes: {totalVotes}</h3>
-      <p>{optionOneDescription} has {voteOnePercent}% of the vote.</p>
-      <ProgressBar completed={voteOnePercent} bgColor="#E555A5" />
-      <br></br> {/* This is just here to visually break up the 2 polls until we style them. */}
-      <p>{optionTwoDescription} has {voteTwoPercent}% of the vote.</p>
-      <ProgressBar completed={voteTwoPercent} />
+      <h2 className="results-bar-h2">Poll Question: {pollQuestion}</h2>
+      <h3 className="results-bar-h3">Total Votes: {totalVotes}</h3>
+      <div className="progress-bars-container">
+        <div className="progress-bar-one">
+          <p className="results-bar-p"> <p className="results-option">{optionOneDescription}</p> has {voteOnePercent}% of the vote.</p>
+          <ProgressBar completed={voteOnePercent} bgColor="#E54F6D" />
+        </div>
+        <div className="progress-bar-two">
+          <p className="results-bar-p"> <p className="results-option">{optionTwoDescription}</p> has {voteTwoPercent}% of the vote.</p>
+          <ProgressBar completed={voteTwoPercent} 
+          bgColor="#724E91"/>
+        </div>
+      </div>
     </>
   );
 }

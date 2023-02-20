@@ -51,6 +51,10 @@
 }
 
 @media (max-width: 800px) {
+
+    .menu-link-ham {
+            display: block;
+        }
     .find-poll-container {
         min-height: 0;
     }
@@ -83,11 +87,37 @@
         margin-bottom: 60px;
     }
 }
+
+.nav-bar {
+    display: none;
+}
+
+.burger-bar {
+    z-index: 3;
+}
+
+.burger-nav {
+    display: block;
+}
+
+.hamburger-nav {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin-top: 20px;
+    h1 {
+        width: 150%;
+    }
+    align-items: center;
+}
  
 }
 
 @media (max-width: 560px) and (min-width: 428.1px) {
 //create a poll media-queries
+.menu-link-ham {
+        display: block;
+    }
     .create-poll-form {
         width: 80%;
     }
@@ -107,6 +137,25 @@
 
 @media (min-width: 320px) and (max-width: 428px) {
 //media-queries for create your poll page
+.menu-link-ham {
+        display: block;
+    }
+.nav-bar {
+    display: none;
+}
+
+.burger-bar {
+    z-index: 3;
+}
+
+.burger-nav {
+    display: block;
+}
+
+
+
+
+
 .create-buttons {
     display: flex;
     flex-direction: column;

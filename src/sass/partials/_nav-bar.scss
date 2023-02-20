@@ -10,6 +10,7 @@
   align-items: center;
   justify-content: space-between;
   margin-bottom: 5%;
+  
     
 }
 
@@ -17,7 +18,6 @@
 .nav-ul {
   display: flex;
   justify-content: flex-end;
-
 }
 .menu-link {
   border: 1px solid $transparent;
@@ -31,4 +31,11 @@
     background-color: $med-purple;
     color: $white;
   }
+
+  
+}
+
+.burger-menu {
+  background: none;
+  font-size: $fs-med;
 }

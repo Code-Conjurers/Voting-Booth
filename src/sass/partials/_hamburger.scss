@@ -1,0 +1,112 @@
+@use './variables' as *;
+@use './mixins' as *;
+
+* {
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.menu-link-ham {
+    display: none;
+}
+
+.hamburger-nav {
+    display: flex;
+    
+
+}
+
+.burger-container {
+    width: 100%;
+    display: flex;
+    justify-content: right;
+}
+
+.burger-nav {
+    height: 5em;
+    display: flex;
+    justify-content: flex-end;
+    padding: 1em;
+    display: none;
+    
+}
+
+.burger-menu {
+
+    height: 100%;
+    padding: 2px;
+    width: 2em;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-between;
+    cursor: pointer;
+    z-index: 3;
+    
+    
+}
+
+
+
+.burger-bar {
+    width: 2em;
+    height: 0.5em;
+    background-color: $dark-purple;
+    border-radius: 0.5em;
+}
+
+.menu {
+    width: 30%;
+    height: 40vh;
+    background-color: white;
+    position: absolute;
+    top: 0;
+    z-index: 2;
+    display: flex;
+    border: solid $dark-purple 2px;
+    border-radius: 30px;
+    
+    flex-direction: column;
+        .menu-link {
+            margin-top: 80px;
+            font-size: $fs-med;
+            text-align: left;
+        }
+
+        a {
+            margin-top: 80px;
+        }
+
+   
+
+    
+}
+
+//sliding menu portion
+
+.hidden {
+    display: none;
+}
+
+.visible {
+    
+}
+
+.burger-bar.clicked:nth-child(1) {
+    transform: rotate(45deg) translate(0.3em, 0em);
+    transition: ease-out 0.5s;
+}
+.burger-bar.clicked:nth-child(2) {
+    transform: scale(0.1);
+    transition: ease-out 0.5s;
+}
+.burger-bar.clicked:nth-child(3) {
+    transform: rotate(135deg) translate(-0.5em, 0.3em);
+    transition: ease-out 0.5s;
+}
+
+.burger-bar.unclicked {
+    transform: rotate(0) translate (0);
+    transition: cubic-bezier(0.175, 0.885, 0.32, 1.275) 0.5s;
+    margin: 2px;
+}

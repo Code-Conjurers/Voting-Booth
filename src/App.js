@@ -1,5 +1,6 @@
 // modules
 import { Routes, Route } from 'react-router-dom';
+import * as React from 'react';
 
 // components
 import ErrorPage from "./Pages/ErrorPage";
@@ -11,18 +12,21 @@ import NavBar from './Components/NavBar';
 import Footer from './Components/Footer';
 import Home from './Pages/Home';
 import PollConfirmation from './Components/PollConfirmation';
+import Hamburger from './Components/Hamburger';
 
 // CSS
 import './App.scss';
 
+//function for the hamburger menu
+
 
 function App() {
-
+  
   return (
     <div className="app wrapper">
       <header>
         <NavBar />
-        
+        <Hamburger />               
       </header>
       <main>
         <Routes>

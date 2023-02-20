@@ -1,67 +1,287 @@
+@use "./variables" as *;
+@use "./mixins" as *;
+
 @media (max-width: 1260px) {
-   .nav-bar {
-    margin-bottom: 0;
+  // home page media queries
 
-   }
-   
-   .header-h1 {
-    h2 {
-        margin: 3% 0 5% 0;
+  .home-graphic img {
+    max-width: 47%;
+  }
+  .find-poll-links {
+    flex-direction: column;
+    align-items: center;
+    .button {
+      margin: 2% 0 2% 0;
     }
-   }
-
-   .find-poll-links {
-       flex-direction: column;
-       align-items: center;
-       .button {
-           margin: 2% 0 2% 0;
-       }
-   }
-
-   .voting-ticket {
+  }
+  .voting-ticket {
     display: flex;
     justify-content: center;
-   }
-
-   .voting-booth-container {
-    img {
-        width: 65%;
-    }
-    margin: 2% 0 2% 0;
-    align-items: center;
-    label {
-     font-size: 2.0rem;
-    }
+  }
+  // voting booth
+  .voting-booth-container {
+    max-width: 65%;
     .poll-heading {
-        font-size: 2rem;
-        margin-top: 10px;
+      font-size: $fs-med;
     }
-   }
+  }
+
+  // create your poll media queries
+  .create-poll-container {
+    height: 400px;
+    h2 {
+      margin-top: 0;
+    }
+  }
+  // Find Poll Page Queries
+  .find-poll-links {
+    flex-direction: column;
+    align-items: center;
+
+    .button {
+      margin: 2% 0 2% 0;
+    }
+  }
 }
 
 @media (max-width: 800px) {
-    .find-poll-container {
-        min-height: 0;
+  .menu-link-ham {
+    display: block;
+  }
+
+  // Home Page Queries
+  .header-h2 h2 {
+    font-size: $fs-xl;
+    width: 75%;
+    margin: auto;
+  }
+
+  .home-graphic {
+    margin: 4% 0;
+
+    img {
+      max-width: 60%;
+      flex-basis: 60%;
+    }
+  }
+
+  // Find Poll Queries
+  .find-poll-container {
+    flex-basis: calc((100% - 4%) / 2);
+
+    .delete-button {
+      font-size: $fs-lrg;
+    }
+  }
+  .button-container {
+    button {
+      &.primary {
+        margin: 0;
+      }
     }
 
-    .button-container {
-
-        button{
-            &.primary {
-            margin: 0;
-            }
-        }
-    
     .secondary-buttons {
-        flex-direction: column;
-            a  {
-            margin: 0;
-            }
-            button {
-                margin: 5px 0;
-
-
-            }
-        }
+      flex-direction: column;
+      a {
+        margin: 0;
+      }
+      button {
+        margin: 10px 0;
+      }
     }
+  }
+  //create poll media queries
+  .create-poll-container {
+    height: 400px;
+
+    h2 {
+      margin-bottom: 60px;
+    }
+  }
+
+  //poll confirmation media queries
+  .confirmation-container h2 {
+    font-size: $fs-xl;
+  }
+
+  .nav-bar {
+    display: none;
+  }
+
+  .burger-bar {
+    z-index: 3;
+  }
+
+  .burger-nav {
+    display: block;
+  }
+
+  .hamburger-nav {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin-top: 20px;
+    h1 {
+      width: 150%;
+    }
+    align-items: center;
+  }
+
+  // voting booth
+  .voting-booth-container {
+    max-width: 80%;
+  }
+}
+
+@media (max-width: 560px) {
+  // voting booth
+  .voting-booth-container {
+    max-width: 90%;
+  }
+  .voting-question {
+    h3 {
+      font-size: $fs-default;
+      .poll-heading {
+        font-size: $fs-med;
+      }
+    }
+  }
+  .button-container {
+    .button {
+      &.primary {
+        font-size: $fs-default;
+        margin: 10px 0 0 0;
+      }
+      &.secondary {
+        margin: 10px 0 0 0;
+      }
+    }
+  }
+  .confirmation-container {
+    h2 {
+      font-size: $fs-lrg;
+    }
+    .button-container {
+      margin: 0;
+    }
+  }
+
+  // Find Poll Queries
+  .find-poll-container {
+    flex-basis: 100%;
+    margin: 4% 1%;
+  }
+
+  .results {
+    .results-h2 {
+      font-size: $fs-med;
+    }
+    .results-bar-h2 {
+      font-size: $fs-small;
+    }
+  }
+
+  //create a poll media-queries
+  .menu-link-ham {
+    display: block;
+  }
+  .create-poll-form {
+    width: 80%;
+  }
+
+  .create-poll-container {
+    h2 {
+      font-size: $fs-lrg;
+    }
+    h3 {
+      font-size: $fs-small;
+    }
+  }
+}
+
+@media (max-width: 444px) {
+  .results-buttons {
+    flex-direction: column;
+    flex-wrap: nowrap;
+    min-width: 100%;
+    align-items: center;
+    a {
+      width: inherit;
+      text-align: center;
+    }
+    :first-child {
+      margin-bottom: 12px;
+    }
+  }
+
+  .progress-bars-container {
+    margin-bottom: 0px;
+  }
+}
+
+@media (max-width: 428px) {
+  //media-queries for create your poll page
+  .menu-link-ham {
+    display: block;
+  }
+  .nav-bar {
+    display: none;
+  }
+
+  .burger-bar {
+    z-index: 3;
+  }
+
+  .burger-nav {
+    display: block;
+  }
+
+  // Home Page Queries
+  .header-h2 h2 {
+    font-size: $fs-lrg;
+  }
+
+  .home-graphic {
+    margin: 8% 0;
+
+    img {
+      max-width: 100%;
+      flex-basis: 100%;
+    }
+  }
+
+  .home-button-box {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+
+    .button {
+      min-width: 140px;
+    }
+  }
+
+  .create-buttons {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .create-poll-form {
+    .poll-input {
+      margin-top: 10px;
+    }
+
+    width: 90%;
+  }
+
+  .create-poll-container {
+    h2 {
+      font-size: $fs-med;
+      margin-bottom: 20px;
+    }
+
+    h3 {
+      font-size: $fs-small;
+      text-align: center;
+    }
+  }
 }

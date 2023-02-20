@@ -1,13 +1,11 @@
-@use './variables' as *;
-@use './mixins' as *;
+@use "./variables" as *;
+@use "./mixins" as *;
 
 // Default Styles
 
 * {
   margin: 0;
   padding: 0;
-  // color: $dark-purple;
-  // border: 1px solid pink;
 }
 
 .wrapper {
@@ -46,7 +44,6 @@ button {
     color: $pink;
   }
 
-
   &.button {
     padding: 10px 20px;
     border-radius: 20px;
@@ -61,7 +58,6 @@ button {
         background-color: $med-purple;
         color: $white;
       }
-
     }
 
     &.secondary {
@@ -74,7 +70,6 @@ button {
         color: $white;
       }
     }
-
   }
 }
 
@@ -95,7 +90,11 @@ header {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center
+  align-items: center;
 }
 
-
+.header-h1 {
+  h2 {
+    margin: 3% 0 5% 0;
+  }
+}

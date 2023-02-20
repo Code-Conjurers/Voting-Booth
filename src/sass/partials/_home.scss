@@ -11,12 +11,13 @@
     width: 100%;
     height: auto;
     flex-basis: 50%;
-    max-width: 50%;
+    max-width: 40%;
   }
 }
 
 .home-button-box {
   display: flex;
+  flex-wrap: wrap;
   justify-content: center;
   margin-top: 2%;
   a {

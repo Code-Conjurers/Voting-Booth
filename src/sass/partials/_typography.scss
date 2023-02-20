@@ -3,15 +3,16 @@
 
 html {
   font-size: $fs-global;
-  color: $dark-purple;
+  color: $dark-purple; 
+  text-transform: capitalize;
 }
 
 a, 
 p,
 button {
   font-size: $fs-default;
+  font-family: $ff;
 }
-
 
 h1 {
   @include heading($fs-med);
@@ -20,7 +21,7 @@ h1 {
 }
 
 h2 {
-  @include heading($fs-xl);
+  @include heading($fs-2xl);
   margin: 5% 0 5% 0;
   text-align: center;
 }

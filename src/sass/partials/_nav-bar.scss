@@ -9,26 +9,39 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-bottom: 5%;
-    
+  margin-bottom: 0;
 }
-
 
 .nav-ul {
   display: flex;
   justify-content: flex-end;
-
 }
+
+.title-home a h1 {
+  transition: 300ms;
+}
+
+a.menu-link {
+  padding: 7px 20px;
+}
+
 .menu-link {
   border: 1px solid $transparent;
   padding: 10px 20px;
   border-radius: 20px;
   font-weight: $fw-bold;
-  
+  margin-inline: 5px;
   &:hover,
   &:focus {
     border: 1px solid $dark-purple;
     background-color: $med-purple;
     color: $white;
   }
+
+  
+}
+
+.burger-menu {
+  background: none;
+  font-size: $fs-med;
 }

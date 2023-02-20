@@ -1,25 +1,22 @@
-import { useParams, Link } from 'react-router-dom';
-import votingConfirmationImg from '../assets/voting-confirmation.png'
+//Modules
+import { useParams, Link } from "react-router-dom";
+//Assets
+import votingConfirmationImg from "../assets/voting-confirmation.png";
 
-function VotingConfirmation () {
-
+const VotingConfirmation = () => {
   const { boothID } = useParams();
 
   return (
     <>
-    <div className="confirmation-container">
-      
+    <section className="confirmation-container">
       <img src={votingConfirmationImg} alt="Person holding a tablet with a checkmark on their screen"/>
-      
       <h2>Your vote has been recorded!</h2>
-
       <div className="button-container">
         <Link className="button primary" to={`/results/${boothID}`}>View Results</Link>
       </div>
-
-    </div>
+    </section>
     </>
-  )
-}
+  );
+};
 
 export default VotingConfirmation;

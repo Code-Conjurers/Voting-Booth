@@ -32,7 +32,7 @@ const Hamburger = () => {
         </div>
         <div className="burger-container">
             <nav className="burger-nav">
-                <button className="burger-menu" onClick={updateMenu}>
+                <button className="burger-menu" aria-label="click to open and close menu" Click={updateMenu}>
                     <div className={burgerClass}></div>                    
                     <div className={burgerClass}></div>
                     <div className={burgerClass}></div>

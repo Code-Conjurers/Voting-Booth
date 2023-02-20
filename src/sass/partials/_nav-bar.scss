@@ -9,7 +9,9 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-bottom: 0;
+  margin-bottom: 5%;
+  
+    
 }
 
 .nav-ul {
@@ -28,4 +30,11 @@
     background-color: $med-purple;
     color: $white;
   }
+
+  
+}
+
+.burger-menu {
+  background: none;
+  font-size: $fs-med;
 }

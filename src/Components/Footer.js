@@ -1,7 +1,7 @@
 function Footer() {
   return (
     <>
-      <footer>
+      <footer className="foot">
         <p>Created at <a href="https://junocollege.com/">Juno College</a> by 
         <a href="https://freemark.dev/">Fiona Freemark,</a> 
         <a href="https://nobrayn.com/">Chris O'Bray,</a> 

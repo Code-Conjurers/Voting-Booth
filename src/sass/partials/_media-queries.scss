@@ -1,3 +1,6 @@
+@use './variables' as *;
+@use './mixins' as *;
+
 @media (max-width: 1260px) {
    .nav-bar {
     margin-bottom: 0;
@@ -37,6 +40,14 @@
         margin-top: 10px;
     }
    }
+// create your poll media-queries
+   .create-poll-container {
+    height: 400px;
+
+    h2 {
+        margin-top: 0;
+    }
+   }
 }
 
 @media (max-width: 800px) {
@@ -64,4 +75,63 @@
             }
         }
     }
+//create poll media queries
+.create-poll-container {
+    height: 400px;
+
+    h2 {
+        margin-bottom: 60px;
+    }
+}
+ 
+}
+
+@media (max-width: 560px) and (min-width: 428.1px) {
+//create a poll media-queries
+    .create-poll-form {
+        width: 80%;
+    }
+
+    .create-poll-container{
+        h2 {
+            font-size: $fs-lrg;
+        }
+        h3 {
+            font-size: $fs-small;
+        }
+
+        
+    }
+}
+
+
+@media (min-width: 320px) and (max-width: 428px) {
+//media-queries for create your poll page
+.create-buttons {
+    display: flex;
+    flex-direction: column;
+}
+
+.create-poll-form {
+    .poll-input {
+        margin-top: 10px;
+    }
+
+    width: 90%;
+}
+
+.create-poll-container {
+    h2 {
+        font-size: $fs-med;
+        margin-bottom: 20px;
+    }
+
+    h3 {
+        font-size: $fs-small;
+        text-align: center;
+    }
+
+    
+}
+
 }

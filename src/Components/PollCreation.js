@@ -85,7 +85,7 @@ function PollCreation() {
           <div>
             {
               <>
-              <h2>Create Your Poll</h2>
+              <h2 className="create-title">Create Your Poll</h2>
                 <form className="create-poll-form">
                   <input
                     type="text"

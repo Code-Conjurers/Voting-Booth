@@ -1,0 +1,79 @@
+@use './variables' as *;
+@use './mixins' as *;
+
+.voting-booth-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border: 4px solid $pink;
+  border-radius: 20px;
+  width: 60%;
+  margin: 0 auto;
+  padding: 3%;
+
+  h3 {
+    text-align: center;
+  }
+
+  label {
+    font-size: 2.5rem;
+    margin-top: 25px;
+  }
+
+  input[type="radio"] {
+    accent-color: $pink;
+    height: 2.5rem;
+    width: 2.5rem;
+    margin-top: 25px;
+  }
+
+  .poll-heading {
+    font-size: 5rem;
+    display: block;
+  }
+}
+
+.voting-form {
+  display: flex;
+  flex-direction: column;
+
+  .selection-container {
+    display: flex;
+    flex-direction: row;
+
+    input {
+      margin-right: 25px;
+    }
+  }
+}
+
+.button-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+
+  button {
+    width: 200px;
+    margin: 10px 0;
+  }
+
+  .secondary-buttons {
+    display: flex;
+    flex-direction: row;
+
+    a {
+      margin: 10px 0;
+      width: 200px;
+      text-align: center;
+      margin-left: 10px;
+    }
+
+    button {
+      margin-right: 10px;
+    }
+  }
+
+}

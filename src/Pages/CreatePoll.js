@@ -1,9 +1,10 @@
-import PollCreation from '../Components/PollCreation';
+//Components
+import PollCreation from "../Components/PollCreation";
 
-function CreatePoll() {
+const CreatePoll = () => {
   return (
       <PollCreation />
-  )
-}
+  );
+};
 
 export default CreatePoll;

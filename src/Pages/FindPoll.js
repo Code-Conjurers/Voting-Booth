@@ -1,14 +1,17 @@
-import firebase from '../Components/Firebase';
-import Swal from 'sweetalert2';
-import { getDatabase, ref, onValue, remove } from 'firebase/database'
-import { useState, useEffect } from 'react';
+//Modules
+import firebase from "../Components/Firebase";
+import Swal from "sweetalert2";
+import { getDatabase, ref, onValue, remove } from "firebase/database";
+import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import { FaTimesCircle } from 'react-icons/fa'
-import CreatePoll from './CreatePoll';
-import SearchGraphic from "../assets/search-graphic-undraw.svg"
+import { FaTimesCircle } from "react-icons/fa";
+//Components
+import CreatePoll from "./CreatePoll";
+//Assets
+import SearchGraphic from "../assets/search-graphic-undraw.svg";
 
-function FindPoll() {
-  // Defining State
+const FindPoll = () => {
+  //defining State
   const [pollData, setPollData] = useState([]);
   const [dbState, setDbState] = useState();
   // Firebase Connection
@@ -23,7 +26,7 @@ function FindPoll() {
     onValue(dbRef, (response) => {
       // create an empty array
       const newState = [];
-      // use Firebase's .val() to parse our database info into the format we need
+      // use Firebase"s .val() to parse our database info into the format we need
       const dataResponse = response.val();
       // data is an object, so we iterate through it using a for in loop to access each voting booth
       for (let key in dataResponse) {
@@ -34,34 +37,36 @@ function FindPoll() {
       setPollData(newState);
     }// end of onValue
     )//end of onValue
-  }, []) //end of useEffect
+  }, []); //end of useEffect
 
-  function deleteFunction(key) {
+  //function to delete polls from page and firebase
+  const deleteFunction = (key) => {
     const keyRef = ref(dbState, `/${key}`);
+    //alert to ask for confirmation before poll deletion 
     Swal.fire({
-      title: 'Are you sure?',
+      title: "Are you sure?",
       text: "You won't be able to revert this!",
-      icon: 'warning',
+      icon: "warning",
       showCancelButton: true,
-      confirmButtonColor: '#d33',
-      cancelButtonColor: '#724E91',
-      confirmButtonText: 'Yes, delete it!'
+      confirmButtonColor: "#d33",
+      cancelButtonColor: "#724E91",
+      confirmButtonText: "Yes, delete it!"
     }).then((result) => {
       if (result.isConfirmed) {
+        //alert to confirm poll is deleted
         Swal.fire(
-          'Deleted!',
-          'Your file has been deleted.',
-          'success'
+          "Deleted!",
+          "Your file has been deleted.",
+          "success"
         )
+        //removal from firebase
         remove(keyRef);
       }
-    })
-  }
-
-  console.log(pollData);
+    });
+  };
 
   return (
-    <section className='find-poll-section'>
+    <section className="find-poll-section">
       <h2>Find a Poll</h2>
       {/* Map through our firebase "Poll Data" and return the poll name & link to the page for each available poll. */}
       {[...pollData].reverse().map((poll, index) => {
@@ -73,20 +78,20 @@ function FindPoll() {
                 <Link className="button primary" to={`/votingbooth/${poll.key}`}> Voting Booth</Link>
                 <Link className="button secondary" to={`/results/${poll.key}`}>See Results</Link>
               </div>
-              <button className='delete-button' onClick={() => deleteFunction(poll.key)}><FaTimesCircle className='delete-button-icon' aria-label='Delete Poll' /></button>
+              <button className="delete-button" onClick={() => deleteFunction(poll.key)}><FaTimesCircle className="delete-button-icon" aria-label="Delete Poll" /></button>
             </div>
           </>
         )
       })}
       <div className="find-poll-container no-poll-container">
-          <h3>That's all for now...</h3>
+          <h3>That"s all for now...</h3>
         <div className="find-poll-img">
           <img src={SearchGraphic} alt="Illustration of person holding a magnifying glass and searching a document." />
         </div>
         <Link to={`/createpoll`} element={<CreatePoll />} className="button primary"> Create A Poll</Link>
       </div>
     </section>
-  )
+  );
 };
 
 export default FindPoll;

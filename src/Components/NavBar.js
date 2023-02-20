@@ -1,10 +1,12 @@
+//Modules
 import { Link } from "react-router-dom";
+//Pages
 import FindPoll from "../Pages/FindPoll";
 import Home from "../Pages/Home";
 import CreatePoll from "../Pages/CreatePoll";
 
 
-function NavBar() {
+const NavBar = () => {
   return (
     <div className="nav-bar">
       <div className="title-home">
@@ -21,7 +23,7 @@ function NavBar() {
       </ul>
       </div>
     </div>
-  )
-}
+  );
+};
 
 export default NavBar;

@@ -1,27 +1,24 @@
-// modules
+//Modules
 import { Routes, Route } from 'react-router-dom';
-
-// components
+//Pages
 import ErrorPage from "./Pages/ErrorPage";
 import CreatePoll from './Pages/CreatePoll';
 import FindPoll from './Pages/FindPoll';
 import VotingBooth from './Pages/VotingBooth';
 import Results from './Pages/Results';
+import Home from './Pages/Home';
+//Components
 import NavBar from './Components/NavBar';
 import Footer from './Components/Footer';
-import Home from './Pages/Home';
-
 // CSS
 import './App.scss';
 
 
-function App() {
-
+const App = () => {
   return (
     <div className="app wrapper">
       <header>
         <NavBar />
-        
       </header>
       <main>
         <Routes>
@@ -35,7 +32,7 @@ function App() {
       </main>
       <Footer />
     </div>
-  );
-}
+  )
+};
 
 export default App;

@@ -1,9 +1,7 @@
-// Import the functions you need from the SDKs you need
+//Modules
 import { initializeApp } from "firebase/app";
-// TODO: Add SDKs for Firebase products that you want to use
-// https://firebase.google.com/docs/web/setup#available-libraries
 
-// Your web app's Firebase configuration
+//Firebase Configuration
 const firebaseConfig = {
   apiKey: "AIzaSyDX24f-P7A7fChNLQBSNxdY25g6tZ_uKKw",
   authDomain: "voting-booth-1005f.firebaseapp.com",
@@ -13,7 +11,7 @@ const firebaseConfig = {
   appId: "1:864327155103:web:ed3c007b75d5375ca111aa"
 };
 
-// Initialize Firebase
+//Initialize Firebase
 const firebase = initializeApp(firebaseConfig);
 
 export default firebase;

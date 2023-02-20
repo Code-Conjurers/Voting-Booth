@@ -8,11 +8,14 @@ footer {
   align-items: center;
   margin-bottom: 5px;
   margin-top: 10px;
+  text-align: center;
+
+  span {
+    display: block;
+  }
 
   p {
-    display: inline-block;
     margin-bottom: 4px;
-
   }
 
   a {

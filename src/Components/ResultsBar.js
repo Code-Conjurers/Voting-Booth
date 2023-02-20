@@ -14,9 +14,9 @@ const ResultsBar = () => {
   //defining State
   const [pollQuestion, setPollQuestion] = useState("");
   const [optionOneDescription, setOptionOneDescription] = useState("");
-  const [votesOne, setVotesOne] = useState(0);
+  const [votesOne, setVotesOne] = useState();
   const [optionTwoDescription, setOptionTwoDescription] = useState("");
-  const [votesTwo, setVotesTwo] = useState(0);
+  const [votesTwo, setVotesTwo] = useState();
   const [totalVotes, setTotalVotes] = useState();
   const [voteOnePercent, setVoteOnePercent] = useState();
   const [voteTwoPercent, setVoteTwoPercent] = useState();
@@ -35,22 +35,23 @@ const ResultsBar = () => {
 
       //function to calculate % of votes
       const voteCounting = function getPercentA(x, y) {
-        if (x >=1 || y >= 1){
-          return Math.round((x / (x + y)) * 100);
-        } else {
-          Swal.fire("No votes yet!");
-          //0 is passed to vote percentage to avoid undefined or NaN
-          setVoteOnePercent(0);
-          setVoteTwoPercent(0);
-        }
+        if (!isNaN(x, y)){
+          return Math.round((x / (x + y)) * 100);  
+        } 
       };
       //ensuring vote one or two has data before passing into useState
-      const vote = voteCounting(votesOne, votesTwo); 
-      const voteTwo = voteCounting(votesTwo, votesOne); 
-      if (vote >=1 || voteTwo >=1) {
-        setVoteOnePercent(vote, voteTwo);
-        setVoteTwoPercent(voteTwo, vote);
-      };
+      const voteCalc = voteCounting(votesOne, votesTwo); 
+      const voteTwoCalc = voteCounting(votesTwo, votesOne); 
+      if (voteCalc >=1 || voteTwoCalc >=1) {
+        setVoteOnePercent(voteCalc, voteTwoCalc);
+        setVoteTwoPercent(voteTwoCalc, voteCalc);
+      } else if(votesOne === 0 && votesTwo === 0) {
+        //error alert if total votes are 0
+        Swal.fire("No votes yet!");
+      } else {
+        setVoteOnePercent(0);
+        setVoteTwoPercent(0);
+      }
 
     //if snapshot does not exist:
     } else {

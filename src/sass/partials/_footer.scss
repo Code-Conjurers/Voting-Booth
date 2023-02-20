@@ -28,6 +28,7 @@ footer {
     &:hover,
     &:focus {
       color: orange;
+      font-weight: $fw-bold;
       transform: scale(1.1);
       padding-inline: .4rem;
     }

@@ -84,7 +84,7 @@ const FindPoll = () => {
         );
       })};
       <div className="find-poll-container no-poll-container">
-          <h3>That"s all for now...</h3>
+          <h3>That's all for now...</h3>
         <div className="find-poll-img">
           <img src={SearchGraphic} alt="Illustration of person holding a magnifying glass and searching a document." />
         </div>

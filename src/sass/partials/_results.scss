@@ -5,9 +5,8 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 65%;
+    max-width: 550px;
     margin: auto;
-    margin-bottom: 20px;
     padding-top: 20px;
     border: 4px solid $pink;
     border-radius: 5%;
@@ -61,6 +60,7 @@
 
 .results-buttons {
     display: flex;
+    flex-wrap: wrap;
     width: 70%;
     margin: auto;
     margin-bottom: 25px;

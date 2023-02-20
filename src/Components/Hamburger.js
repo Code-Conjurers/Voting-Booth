@@ -21,7 +21,8 @@ const Hamburger = () => {
       setMenuClass("menu hidden")
     }
     setIstMenuClicked(!isMenuClicked)
-    
+  }
+
   return (
     <div className="hamburger-nav">
       <h1>
@@ -36,8 +37,8 @@ const Hamburger = () => {
           </button>
         </nav>
         <div className={menuClass}>
-          <Link className="menu-link menu-link-one" to={`/createpoll`} element={<CreatePoll />}> Create A Poll</Link>
-          <Link className="menu-link menu-link-two" to={`/findpoll`} element={<FindPoll />}> Find A Poll</Link>
+          <Link className="menu-link" to={`/createpoll`} element={<CreatePoll />}> Create A Poll</Link>
+          <Link className="menu-link" to={`/findpoll`} element={<FindPoll />}> Find A Poll</Link>
         </div>
       </div>
     </div>

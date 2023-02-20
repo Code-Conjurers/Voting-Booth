@@ -21,9 +21,7 @@ function App() {
     <div className="app wrapper">
       <header>
         <NavBar />
-        <div className="header-h1">
-        <h1>Whatever Floats Your Vote</h1>
-        </div>
+        
       </header>
       <main>
         <Routes>

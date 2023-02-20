@@ -3,14 +3,33 @@
 
 footer {
   display: flex;
+  flex-direction: column;
   justify-content: center;
-  margin-bottom: 3%;
+  align-items: center;
+  margin-bottom: 5px;
+  margin-top: 10px;
+
+  p {
+    display: inline-block;
+    margin-bottom: 4px;
+
+  }
+
   a {
+    display: inline-block;
     color: $light-purple;
-    transition: 300ms;
+    margin-inline: 4px;
+    transition: 500ms;
+
     &:hover,
     &:focus {
-      color: $pink;
+      color: $light-purple;
+      transform: scale(1.1);
+      padding-inline: .4rem;
+    }
+
+    &:visited {
+      color: $light-purple;
     }
   }
 }

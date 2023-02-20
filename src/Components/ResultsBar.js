@@ -36,7 +36,7 @@ const ResultsBar = () => {
       //function to calculate % of votes
       const voteCounting = function getPercentA(x, y) {
         if (x >=1 || y >= 1){
-          return Math.round((x / (x + y)) * 100);  
+          return Math.round((x / (x + y)) * 100);
         } else {
           Swal.fire("No votes yet!");
           //0 is passed to vote percentage to avoid undefined or NaN
@@ -62,7 +62,7 @@ const ResultsBar = () => {
 
   return (
     <>
-      <h2 className="results-bar-h2">Poll Question: {pollQuestion}</h2>
+      <h2 className="results-bar-h2"><span>Poll Question:</span> {pollQuestion}</h2>
       <h3 className="results-bar-h3">Total Votes: {totalVotes}</h3>
       <section className="progress-bars-container">
         <div className="progress-bar-one">

@@ -10,21 +10,18 @@
   align-items: center;
   justify-content: space-between;
   margin-bottom: 5%;
-    
 }
-
 
 .nav-ul {
   display: flex;
   justify-content: flex-end;
-
 }
+
 .menu-link {
   border: 1px solid $transparent;
   padding: 10px 20px;
   border-radius: 20px;
   font-weight: $fw-bold;
-  
   &:hover,
   &:focus {
     border: 1px solid $dark-purple;

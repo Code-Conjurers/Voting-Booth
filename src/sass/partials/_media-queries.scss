@@ -1,15 +1,15 @@
+@use './variables' as *;
+@use './mixins' as *;
+
 @media (max-width: 1260px) {
    .nav-bar {
     margin-bottom: 0;
-
    }
-   
    .header-h1 {
     h2 {
         margin: 3% 0 5% 0;
     }
    }
-
    .find-poll-links {
        flex-direction: column;
        align-items: center;
@@ -17,12 +17,10 @@
            margin: 2% 0 2% 0;
        }
    }
-
    .voting-ticket {
     display: flex;
     justify-content: center;
    }
-
    .voting-booth-container {
     img {
         width: 65%;
@@ -30,10 +28,10 @@
     margin: 2% 0 2% 0;
     align-items: center;
     label {
-     font-size: 2.0rem;
+     font-size: $fs-med;
     }
     .poll-heading {
-        font-size: 2rem;
+        font-size: $fs-med;
         margin-top: 10px;
     }
    }
@@ -43,15 +41,12 @@
     .find-poll-container {
         min-height: 0;
     }
-
     .button-container {
-
         button{
             &.primary {
             margin: 0;
             }
         }
-    
     .secondary-buttons {
         flex-direction: column;
             a  {
@@ -59,9 +54,44 @@
             }
             button {
                 margin: 5px 0;
-
-
             }
         }
     }
+}
+
+@media (max-width: 428.1px) {
+    .voting-booth-container {
+        width: 100%;
+    }
+    .voting-question {
+        h3 {
+            font-size: $fs-default;
+            .poll-heading {
+                font-size: $fs-med;
+            }
+        }
+    }
+    .button-container {
+        .button {
+            &.primary {
+                font-size: $fs-default;
+                margin: 10px 0 0 0;
+            }
+            &.secondary {
+                margin: 10px 0 0 0;
+            }
+        }
+    }
+    .confirmation-container {
+        h2 {
+            font-size: $fs-lrg;
+        }
+        .button-container {
+            margin: 0;
+        }
+    }
+}
+
+@media (min-width: 320px) and (max-width: 428px) {
+
 }

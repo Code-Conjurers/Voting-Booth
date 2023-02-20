@@ -39,7 +39,7 @@ const VotingBooth = () => {
       //  set state to match no-longer-empty array
       setPollData(newState);
     })
-  }, [])
+  }, []);
 
   //function to record vote submitted on button submit
   function handleSubmitVote(e, poll) {
@@ -62,7 +62,7 @@ const VotingBooth = () => {
       Swal.fire({
         icon: "warning",
         title: "Oops...",
-        text: "You must choose an option, fence-sitter!",
+        text: "You must choose an option, fence-sitter!"
       });
       //if error returns, isSubmitted state is false to prevent vote confirmation ternary
       setIsSubmitted(false);
@@ -135,14 +135,14 @@ const VotingBooth = () => {
                       </form>
 
                     </div>
-                    : null}
+                    : null};
                 </React.Fragment>
-              )
+              );
             })
-          }
+          };
         </section>}
     </>
-  )
-}
+  );
+};
 
 export default VotingBooth;

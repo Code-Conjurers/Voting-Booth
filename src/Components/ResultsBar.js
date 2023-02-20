@@ -43,21 +43,21 @@ const ResultsBar = () => {
           setVoteOnePercent(0);
           setVoteTwoPercent(0);
         }
-      }
+      };
       //ensuring vote one or two has data before passing into useState
       const vote = voteCounting(votesOne, votesTwo); 
       const voteTwo = voteCounting(votesTwo, votesOne); 
       if (vote >=1 || voteTwo >=1) {
-        setVoteOnePercent(vote, voteTwo)
-        setVoteTwoPercent(voteTwo, vote)
+        setVoteOnePercent(vote, voteTwo);
+        setVoteTwoPercent(voteTwo, vote);
       };
 
     //if snapshot does not exist:
     } else {
-      Swal.fire("No data available")
+      Swal.fire("No data available");
     }
   }).catch(() => {
-    Swal.fire("Sorry, an error has occurred.")
+    Swal.fire("Sorry, an error has occurred.");
   });
 
   return (

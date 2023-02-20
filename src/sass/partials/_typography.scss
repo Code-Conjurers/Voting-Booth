@@ -3,7 +3,8 @@
 
 html {
   font-size: $fs-global;
-  color: $dark-purple;
+  color: $dark-purple; 
+  text-transform: capitalize;
 }
 
 a, 

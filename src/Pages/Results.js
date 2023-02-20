@@ -16,7 +16,7 @@ const Results = () => {
         <Link to={`/findpoll`} element={<FindPoll />} className="button secondary">Find Another Poll</Link>
       </div>
     </section>
-  )
+  );
 };
 
 export default Results;

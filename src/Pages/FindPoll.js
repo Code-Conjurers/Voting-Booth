@@ -81,8 +81,8 @@ const FindPoll = () => {
               <button className="delete-button" onClick={() => deleteFunction(poll.key)}><FaTimesCircle className="delete-button-icon" aria-label="Delete Poll" /></button>
             </div>
           </>
-        )
-      })}
+        );
+      })};
       <div className="find-poll-container no-poll-container">
           <h3>That"s all for now...</h3>
         <div className="find-poll-img">

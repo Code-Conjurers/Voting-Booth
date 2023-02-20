@@ -76,9 +76,6 @@
   display: none;
 }
 
-.visible {
-}
-
 .burger-bar.clicked:nth-child(1) {
   transform: rotate(45deg) translate(0.3em, 0em);
   transition: ease-out 0.5s;

@@ -2,6 +2,11 @@
 @use "./mixins" as *;
 
 @media (max-width: 1260px) {
+  // home page media queries
+
+  .home-graphic img {
+    max-width: 47%;
+  }
   .find-poll-links {
     flex-direction: column;
     align-items: center;
@@ -13,24 +18,17 @@
     display: flex;
     justify-content: center;
   }
+  // voting booth
   .voting-booth-container {
-    img {
-      width: 65%;
-    }
-    margin: 2% 0 2% 0;
-    align-items: center;
-    label {
-      font-size: $fs-med;
-    }
+    max-width: 65%;
     .poll-heading {
       font-size: $fs-med;
-      margin-top: 10px;
     }
   }
-  // create your poll media-queries
+
+  // create your poll media queries
   .create-poll-container {
     height: 400px;
-
     h2 {
       margin-top: 0;
     }
@@ -88,7 +86,7 @@
         margin: 0;
       }
       button {
-        margin: 5px 0;
+        margin: 10px 0;
       }
     }
   }
@@ -128,11 +126,17 @@
     }
     align-items: center;
   }
+
+  // voting booth
+  .voting-booth-container {
+    max-width: 80%;
+  }
 }
 
 @media (max-width: 560px) {
+  // voting booth
   .voting-booth-container {
-    width: 100%;
+    max-width: 90%;
   }
   .voting-question {
     h3 {
@@ -167,7 +171,6 @@
     flex-basis: 100%;
     margin: 4% 1%;
   }
-
 
   .results {
     .results-h2 {
@@ -252,7 +255,7 @@
     align-items: center;
     text-align: center;
 
-    .button  {
+    .button {
       min-width: 140px;
     }
   }

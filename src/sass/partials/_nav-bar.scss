@@ -1,8 +1,7 @@
-@use './variables' as *;
-@use './mixins' as *;
+@use "./variables" as *;
+@use "./mixins" as *;
 
 // Navigation Styles
-
 .nav-bar {
   width: 100%;
   margin-top: 2%;
@@ -10,6 +9,7 @@
   align-items: center;
   justify-content: space-between;
   margin-bottom: 0;
+  transition: 300ms;
 }
 
 .nav-ul {
@@ -17,12 +17,17 @@
   justify-content: flex-end;
 }
 
-.title-home a h1 {
-  transition: 300ms;
-}
-
-a.menu-link {
-  padding: 7px 20px;
+.h1-link {
+  padding: 10px 20px;
+  border-radius: 20px;
+  font-size: $fs-small;
+  max-width: fit-content;
+  &:hover,
+  &:focus-within {
+    background-color: $med-purple;
+    color: $white;
+    max-width: fit-content;
+  }
 }
 
 .menu-link {
@@ -31,14 +36,13 @@ a.menu-link {
   border-radius: 20px;
   font-weight: $fw-bold;
   margin-inline: 5px;
+
   &:hover,
   &:focus {
     border: 1px solid $dark-purple;
     background-color: $med-purple;
     color: $white;
   }
-
-  
 }
 
 .burger-menu {

@@ -73,7 +73,9 @@ const FindPoll = () => {
         return (
           <>
             <div className="find-poll-container" key={index}>
-              <h3>{poll.poll.pollQuestion}</h3>
+              <div className="h3-container">
+                <h3>{poll.poll.pollQuestion}</h3>
+              </div>{/* End of .h3-container */}
               <div className="find-poll-links">
                 <Link className="button primary" to={`/votingbooth/${poll.key}`}> Voting Booth</Link>
                 <Link className="button secondary" to={`/results/${poll.key}`}>See Results</Link>
@@ -84,7 +86,7 @@ const FindPoll = () => {
         );
       })};
       <div className="find-poll-container no-poll-container">
-          <h3>That's all for now...</h3>
+        <h3>That's all for now...</h3>
         <div className="find-poll-img">
           <img src={SearchGraphic} alt="Illustration of person holding a magnifying glass and searching a document." />
         </div>

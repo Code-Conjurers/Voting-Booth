@@ -135,11 +135,11 @@ const VotingBooth = () => {
                       </form>
 
                     </div>
-                    : null};
+                    : null}
                 </React.Fragment>
               );
             })
-          };
+          }
         </section>}
     </>
   );

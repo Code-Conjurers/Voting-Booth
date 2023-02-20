@@ -18,7 +18,7 @@ h3 {
         margin-top: 1%;
         margin-bottom: 4%;
         color: $med-purple;
-        font-size: $fs-xl;
+        font-size: 5rem;
     }
 }
 
@@ -28,29 +28,30 @@ h3 {
     flex-direction: column;
     justify-content: space-between;
     flex-basis: calc((100% - 6%) / 3);
-    min-height: 350px;
-    padding: 4% 3%;
+    min-height: 300px;
+    padding: 3% 2.5%;
     margin: 1% 1%;
     border: 4px solid $pink;
     border-radius: 30px;
-    -webkit-box-shadow: 0px 3px 20px 2px rgba(122, 122, 122, 0.36);
-    box-shadow: 0px 3px 20px 2px rgba(122, 122, 122, 0.36);
     transition: 300ms;
 
     &:hover {
         border: 4px solid $light-purple;
-    }
-
-    h3,
-    p {
-        margin-bottom: 5%;
+        box-shadow: 0px 3px 20px 2px rgba(122, 122, 122, 0.36);
     }
 
     h3 {
-        margin-top: 2%;
+        margin: 8% 0 5% 0;
         text-align: center;
     }
 
+}
+
+.h3-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 70%;
 }
 
 // Styles for "No More Polls" Tile
@@ -58,12 +59,13 @@ h3 {
     h3 {
         margin-bottom: 1%;
     }
+
     a {
         align-self: center;
     }
+
     &:hover {
         border: 4px solid $pink;
-        -webkit-box-shadow: 0px 3px 20px 2px rgba(122, 122, 122, 0.36);
         box-shadow: 0px 3px 20px 2px rgba(122, 122, 122, 0.36);
     }
 }
@@ -73,6 +75,7 @@ h3 {
     display: flex;
     justify-content: center;
     margin-bottom: 2%;
+
     img {
         flex-basis: 50%;
         max-width: 50%;
@@ -95,10 +98,12 @@ h3 {
     background-color: $transparent;
     color: $med-purple;
     cursor: pointer;
+
     &:hover,
     &:focus {
         scale: 0.9;
     }
+
     &:visited {
         color: $med-purple;
     }

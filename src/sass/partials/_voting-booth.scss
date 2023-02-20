@@ -25,8 +25,8 @@
 
     input[type="radio"] {
         accent-color: $pink;
-        height: $fs-lrg;
-        width: $fs-lrg;
+        height: $fs-med;
+        width: $fs-med;
         margin-top: 25px;
     }
 
@@ -58,7 +58,7 @@
     margin-top: 20px;
 
     button {
-        width: 200px;
+        min-width: 180px;
         margin: 10px 0;
     }
 

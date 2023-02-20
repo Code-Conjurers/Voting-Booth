@@ -10,7 +10,7 @@ const NavBar = () => {
   return (
     <div className="nav-bar">
       <div className="title-home">
-        <Link to={`/`} element={<Home />}> <h1 className="menu-link">Whatever Floats Your Vote </h1> </Link>
+        <Link className="menu-link" to={`/`} element={<Home />}> <h1>Whatever Floats Your Vote </h1> </Link>
       </div>
       <div className="create-find">
       <ul className="nav-ul" >

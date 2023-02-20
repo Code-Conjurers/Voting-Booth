@@ -7,7 +7,7 @@ const ErrorPage = () => {
   return (
     <>
       <div className="error-img">
-      <img src={ErrorGraphic} alt="Illustration of person holding a magnifying glass and searching a document." />
+      <img src={ErrorGraphic} alt="Illustration of person holding a hammer in front of a computer screen with a bug on it."/>
       </div>
       <h2>Oh no! Page not found!</h2>
       <div className="error-btn">

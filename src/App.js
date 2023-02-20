@@ -10,7 +10,6 @@ import Home from './Pages/Home';
 //Components
 import NavBar from './Components/NavBar';
 import Footer from './Components/Footer';
-import Home from './Pages/Home';
 import PollConfirmation from './Components/PollConfirmation';
 import Hamburger from './Components/Hamburger';
 

@@ -1,0 +1,51 @@
+@use "./variables" as *;
+@use "./mixins" as *;
+
+// Navigation Styles
+.nav-bar {
+  width: 100%;
+  margin-top: 2%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0;
+  transition: 300ms;
+}
+
+.nav-ul {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.h1-link {
+  padding: 10px 20px;
+  border-radius: 20px;
+  font-size: $fs-small;
+  max-width: fit-content;
+  &:hover,
+  &:focus-within {
+    background-color: $med-purple;
+    color: $white;
+    max-width: fit-content;
+  }
+}
+
+.menu-link {
+  border: 1px solid $transparent;
+  padding: 10px 20px;
+  border-radius: 20px;
+  font-weight: $fw-bold;
+  margin-inline: 5px;
+
+  &:hover,
+  &:focus {
+    border: 1px solid $dark-purple;
+    background-color: $med-purple;
+    color: $white;
+  }
+}
+
+.burger-menu {
+  background: none;
+  font-size: $fs-med;
+}

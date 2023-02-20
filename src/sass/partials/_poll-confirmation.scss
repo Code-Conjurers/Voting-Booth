@@ -1,0 +1,28 @@
+.confirmation-container {
+    display: flex;
+    a.button.primary {
+        margin: 10px 0 10px 0;
+    }
+}
+
+.confirm-graphic {
+    display: flex;
+    justify-content: center;
+
+    img {
+        height: auto;
+        flex-basis: 50%;
+        max-width: 26%;
+        margin: 50px 0 50px 0;
+    }
+}
+
+.confirmation-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    width: 70%;
+    margin: auto;
+    margin-bottom: 25px;
+    justify-content: space-evenly;
+    align-items: center;
+}

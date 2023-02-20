@@ -1,0 +1,289 @@
+@use "./variables" as *;
+@use "./mixins" as *;
+
+@media (max-width: 1260px) {
+  //create-poll
+  .create-poll-container {
+    height: 400px;
+    h2 {
+      margin-top: 0;
+    }
+  }
+
+  //find-poll
+  .find-poll-links {
+    flex-direction: column;
+    align-items: center;
+    .button {
+      margin: 2% 0 2% 0;
+    }
+  }
+
+  //home
+  .home-graphic img {
+    max-width: 47%;
+  }
+  .find-poll-links {
+    flex-direction: column;
+    align-items: center;
+    .button {
+      margin: 2% 0 2% 0;
+    }
+  }
+  .voting-ticket {
+    display: flex;
+    justify-content: center;
+  }
+
+  //voting-booth
+  .voting-booth-container {
+    max-width: 65%;
+    .poll-heading {
+      font-size: $fs-med;
+    }
+  }
+}
+
+@media (max-width: 800px) {
+  //create-poll
+  .create-poll-container {
+    height: 400px;
+    h2 {
+      margin-bottom: 60px;
+    }
+  }
+
+  //find-poll
+  .find-poll-container {
+    flex-basis: calc((100% - 4%) / 2);
+    .delete-button {
+      font-size: $fs-lrg;
+    }
+  }
+  .button-container {
+    button {
+      &.primary {
+        margin: 0;
+      }
+    }
+    .secondary-buttons {
+      flex-direction: column;
+      a {
+        margin: 0;
+      }
+      button {
+        margin: 10px 0;
+      }
+    }
+  }
+
+  //hamburger
+  .menu-link-ham {
+    display: block;
+  }
+  .burger-bar {
+    z-index: 3;
+  }
+  .burger-nav {
+    display: block;
+  }
+  .hamburger-nav {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin-top: 20px;
+    h1 {
+      width: 150%;
+    }
+    align-items: center;
+  }
+
+  //home
+  .header-h2 h2 {
+    font-size: $fs-xl;
+    width: 75%;
+    margin: auto;
+  }
+  .home-graphic {
+    margin: 4% 0;
+    img {
+      max-width: 60%;
+      flex-basis: 60%;
+    }
+  }
+
+  //nav-bar
+  .nav-bar {
+    display: none;
+  }
+
+  //poll-confirmation
+  .confirmation-container h2 {
+    font-size: $fs-xl;
+  }
+
+  //voting-booth
+  .voting-booth-container {
+    max-width: 80%;
+  }
+}
+
+@media (max-width: 560px) {
+  //create-poll
+  .menu-link-ham {
+    display: block;
+  }
+  .create-poll-form {
+    width: 80%;
+  }
+  .create-poll-container {
+    h2 {
+      font-size: $fs-lrg;
+    }
+    h3 {
+      font-size: $fs-small;
+    }
+  }
+
+  //find-poll
+  .find-poll-container {
+    flex-basis: 90%;
+    margin: auto;
+    margin-bottom: 30px;
+    h3 {
+      margin: 20% 0 5% 0;
+    }
+  }
+
+  //hamburger
+  .visible {
+    width: 220px;
+  }
+
+  //nav-bar
+  .hamburger-nav h1 {
+    width: 400%;
+  }
+
+  //results
+  .results {
+    .results-h2 {
+      font-size: $fs-med;
+    }
+    .results-bar-h2 {
+      font-size: $fs-small;
+    }
+  }
+
+  //voting-booth
+  .voting-booth-container {
+    max-width: 90%;
+  }
+  .voting-question {
+    h3 {
+      font-size: $fs-default;
+      .poll-heading {
+        font-size: $fs-med;
+      }
+    }
+  }
+  .button-container {
+    .button {
+      &.primary {
+        font-size: $fs-default;
+        margin: 10px 0 0 0;
+      }
+      &.secondary {
+        margin: 10px 0 0 0;
+      }
+    }
+  }
+
+  //voting-confirmation
+  .confirmation-container {
+    h2 {
+      font-size: $fs-lrg;
+    }
+    .button-container {
+      margin: 0;
+    }
+  }
+}
+
+@media (max-width: 444px) {
+  //results
+  .results-buttons {
+    flex-direction: column;
+    flex-wrap: nowrap;
+    min-width: 100%;
+    align-items: center;
+    a {
+      width: inherit;
+      text-align: center;
+    }
+    :first-child {
+      margin-bottom: 12px;
+    }
+  }
+  .progress-bars-container {
+    margin-bottom: 0px;
+  }
+}
+
+@media (max-width: 428px) {
+  //create-poll
+  .menu-link-ham {
+    display: block;
+  }
+  .nav-bar {
+    display: none;
+  }
+  .burger-bar {
+    z-index: 3;
+  }
+  .burger-nav {
+    display: block;
+  }
+
+  //home-page
+  .header-h2 h2 {
+    font-size: $fs-lrg;
+  }
+  .home-graphic {
+    margin: 8% 0;
+    img {
+      max-width: 100%;
+      flex-basis: 100%;
+    }
+  }
+  .home-button-box {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    .button {
+      min-width: 140px;
+    }
+
+    //poll-creation
+  }
+  .create-buttons {
+    display: flex;
+    flex-direction: column;
+  }
+  .create-poll-form {
+    .poll-input {
+      margin-top: 10px;
+    }
+    width: 90%;
+  }
+  .create-poll-container {
+    h2 {
+      font-size: $fs-med;
+      margin-bottom: 20px;
+    }
+    h3 {
+      font-size: $fs-small;
+      text-align: center;
+    }
+  }
+}

@@ -1,0 +1,36 @@
+@use './variables' as *;
+@use './mixins' as *;
+
+footer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 5px;
+  margin-top: 10px;
+  text-align: center;
+
+  span {
+    display: block;
+    margin-top: 4px;
+  }
+
+  p {
+    margin-bottom: 4px;
+  }
+
+  a {
+    display: inline-block;
+    color: $light-purple;
+    margin-inline: 4px;
+    transition: 500ms;
+
+    &:hover,
+    &:focus {
+      color: orange;
+      font-weight: $fw-bold;
+      transform: scale(1.1);
+      padding-inline: .4rem;
+    }
+  }
+}

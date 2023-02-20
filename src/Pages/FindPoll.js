@@ -71,20 +71,18 @@ const FindPoll = () => {
       {/* Map through our firebase "Poll Data" and return the poll name & link to the page for each available poll. */}
       {[...pollData].reverse().map((poll, index) => {
         return (
-          <>
-            <div className="find-poll-container" key={index}>
-              <div className="h3-container">
-                <h3>{poll.poll.pollQuestion}</h3>
-              </div>{/* End of .h3-container */}
-              <div className="find-poll-links">
-                <Link className="button primary" to={`/votingbooth/${poll.key}`}> Voting Booth</Link>
-                <Link className="button secondary" to={`/results/${poll.key}`}>See Results</Link>
-              </div>
-              <button className="delete-button" onClick={() => deleteFunction(poll.key)}><FaTimesCircle className="delete-button-icon" aria-label="Delete Poll" /></button>
+          <div className="find-poll-container" key={index}>
+            <div className="h3-container">
+              <h3>{poll.poll.pollQuestion}</h3>
+            </div>{/* End of .h3-container */}
+            <div className="find-poll-links">
+              <Link className="button primary" to={`/votingbooth/${poll.key}`}> Voting Booth</Link>
+              <Link className="button secondary" to={`/results/${poll.key}`}>See Results</Link>
             </div>
-          </>
+            <button className="delete-button" onClick={() => deleteFunction(poll.key)}><FaTimesCircle className="delete-button-icon" aria-label="Delete Poll" /></button>
+          </div>
         );
-      })};
+      })}
       <div className="find-poll-container no-poll-container">
         <h3>That's all for now...</h3>
         <div className="find-poll-img">

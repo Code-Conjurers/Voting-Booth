@@ -1,7 +1,6 @@
 @use './variables' as *;
 @use './mixins' as *;
 
-
 .create-poll-form {
   display: flex;
   flex-direction: column;

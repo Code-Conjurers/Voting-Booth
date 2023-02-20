@@ -1,6 +1,6 @@
 //Modules
 import firebase from "./Firebase";
-import { get, ref, getDatabase  } from "firebase/database";
+import { get, ref, getDatabase } from "firebase/database";
 import { useState } from "react";
 import ProgressBar from "@ramonak/react-progress-bar";
 import { useParams } from "react-router-dom";
@@ -8,7 +8,7 @@ import Swal from "sweetalert2";
 
 const ResultsBar = () => {
   //firebase key
-  const {boothID} = useParams();
+  const { boothID } = useParams();
   // initialize database content
   const database = getDatabase(firebase);
   //defining State
@@ -35,17 +35,17 @@ const ResultsBar = () => {
 
       //function to calculate % of votes
       const voteCounting = function getPercentA(x, y) {
-        if (!isNaN(x, y)){
-          return Math.round((x / (x + y)) * 100);  
-        } 
+        if (!isNaN(x, y)) {
+          return Math.round((x / (x + y)) * 100);
+        }
       };
       //ensuring vote one or two has data before passing into useState
-      const voteCalc = voteCounting(votesOne, votesTwo); 
-      const voteTwoCalc = voteCounting(votesTwo, votesOne); 
-      if (voteCalc >=1 || voteTwoCalc >=1) {
+      const voteCalc = voteCounting(votesOne, votesTwo);
+      const voteTwoCalc = voteCounting(votesTwo, votesOne);
+      if (voteCalc >= 1 || voteTwoCalc >= 1) {
         setVoteOnePercent(voteCalc, voteTwoCalc);
         setVoteTwoPercent(voteTwoCalc, voteCalc);
-      } else if(votesOne === 0 && votesTwo === 0) {
+      } else if (votesOne === 0 && votesTwo === 0) {
         //error alert if total votes are 0
         Swal.fire("No votes yet!");
       } else {
@@ -53,7 +53,7 @@ const ResultsBar = () => {
         setVoteTwoPercent(0);
       }
 
-    //if snapshot does not exist:
+      //if snapshot does not exist:
     } else {
       Swal.fire("No data available");
     }
@@ -72,8 +72,8 @@ const ResultsBar = () => {
         </div>
         <div className="progress-bar-two">
           <p className="results-bar-p"> <p className="results-option">{optionTwoDescription}</p> has {voteTwoPercent}% of the vote.</p>
-          <ProgressBar completed={voteTwoPercent} 
-          bgColor="#724E91"/>
+          <ProgressBar completed={voteTwoPercent}
+            bgColor="#724E91" />
         </div>
       </section>
     </>

@@ -29,15 +29,21 @@
 }
 
 .burger-menu {
-  height: 100%;
+  height: 1.7em;
   padding: 2px;
-  width: 2em;
+  width: 2.35em;
+  border-radius: 5px;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   justify-content: space-between;
   cursor: pointer;
   z-index: 3;
+  border: 2px solid $transparent;
+  &:hover,
+  &:focus {
+    border: 2px solid $light-purple;
+  }
 }
 
 .burger-bar {
@@ -48,8 +54,8 @@
 }
 
 .menu {
-  width: 50%;
-  height: 40vh;
+  width: 240px;
+  height: 240px;
   background-color: white;
   position: absolute;
   top: 0;
@@ -60,18 +66,16 @@
 
   flex-direction: column;
   .menu-link {
-    margin-top: 80px;
+    margin-top: 65px;
     font-size: $fs-med;
     text-align: left;
   }
-
-  a {
-    margin-top: 80px;
+  .menu-link-two {
+    margin-top: 20px;
   }
 }
 
 //sliding menu portion
-
 .hidden {
   display: none;
 }
@@ -85,7 +89,7 @@
   transition: ease-out 0.5s;
 }
 .burger-bar.clicked:nth-child(3) {
-  transform: rotate(135deg) translate(-0.5em, 0.3em);
+  transform: rotate(135deg) translate(-0.6em, 0.3em);
   transition: ease-out 0.5s;
 }
 

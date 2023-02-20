@@ -83,57 +83,55 @@ const PollCreation = () => {
   };
 
   return (
-    <>
-      <section className="create-poll-container">
-        {isSubmitted ?
-          <PollConfirmation pollId={newPollId} /> :
-          <div>
-            {
-              <>
-                <h2 className="create-title">Create Your Poll</h2>
-                <form className="create-poll-form">
-                  <input
-                    type="text"
-                    maxLength={80}
-                    className="poll-input poll-question"
-                    name="poll-question"
-                    placeholder="Poll Question"
-                    value={pollQuestion}
-                    onChange={handleQuestionChange}
-                    aria-label="Poll Question"
-                  />
-                  <h3>Enter your polling options:</h3>
-                  <input
-                    type="text"
-                    maxLength={40}
-                    className="poll-input poll-option-one"
-                    name="poll-option-one"
-                    placeholder="Option One"
-                    value={optionOneDescription}
-                    onChange={handleOptionOneChange}
-                    aria-label="Poll Option One"
-                  />
-                  <input
-                    type="text"
-                    maxLength={40}
-                    className="poll-input poll-option-two"
-                    name="poll-option-two"
-                    placeholder="Option Two"
-                    value={optionTwoDescription}
-                    onChange={handleOptionTwoChange}
-                    aria-label="Poll Option Two"
-                  />
-                  <div className="create-buttons">
-                    <button className="button primary" aria-label="create poll" onClick={addPoll}>Submit</button>
-                    <Link to={`/findpoll`} element={<FindPoll />} className="button secondary"> Find A Poll</Link>
-                  </div>
-                </form>
-              </>
-            }
-          </div>
-        }
-      </section> {/* End of .create-poll-container */}
-    </>
+    <section className="create-poll-container">
+      {isSubmitted ?
+        <PollConfirmation pollId={newPollId} /> :
+        <div>
+          {
+            <>
+              <h2 className="create-title">Create Your Poll</h2>
+              <form className="create-poll-form">
+                <input
+                  type="text"
+                  maxLength={80}
+                  className="poll-input poll-question"
+                  name="poll-question"
+                  placeholder="Poll Question"
+                  value={pollQuestion}
+                  onChange={handleQuestionChange}
+                  aria-label="Poll Question"
+                />
+                <h3>Enter your polling options:</h3>
+                <input
+                  type="text"
+                  maxLength={40}
+                  className="poll-input poll-option-one"
+                  name="poll-option-one"
+                  placeholder="Option One"
+                  value={optionOneDescription}
+                  onChange={handleOptionOneChange}
+                  aria-label="Poll Option One"
+                />
+                <input
+                  type="text"
+                  maxLength={40}
+                  className="poll-input poll-option-two"
+                  name="poll-option-two"
+                  placeholder="Option Two"
+                  value={optionTwoDescription}
+                  onChange={handleOptionTwoChange}
+                  aria-label="Poll Option Two"
+                />
+                <div className="create-buttons">
+                  <button className="button primary" aria-label="create poll" onClick={addPoll}>Submit</button>
+                  <Link to={`/findpoll`} element={<FindPoll />} className="button secondary"> Find A Poll</Link>
+                </div>
+              </form>
+            </>
+          }
+        </div>
+      }
+    </section>
   );
 };
 

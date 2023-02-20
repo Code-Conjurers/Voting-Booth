@@ -78,15 +78,14 @@ function PollCreation() {
 
   return (
     <>
-      <div className="create-poll-h2">
-        <h2>Create A Poll</h2>
-      </div>
       <div className="create-poll-container">
+      
         {isSubmitted ?
           <PollConfirmation pollId={newPollId} /> :
           <div>
             {
               <>
+              <h2>Create Your Poll</h2>
                 <form className="create-poll-form">
                   <input
                     type="text"
@@ -120,9 +119,11 @@ function PollCreation() {
                     onChange={handleOptionTwoChange}
                     aria-label="Poll Option Two"
                   />
-                </form>
+                <div className="create-buttons">
                 <button className="button primary" aria-label="create poll" onClick={addPoll}>Submit</button>
                 <Link to={`/findpoll`} element={<FindPoll />} className="button secondary"> Find A Poll</Link>
+                </div>
+                </form>
               </>
             }
           </div>}

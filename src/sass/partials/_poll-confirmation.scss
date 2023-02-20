@@ -1,0 +1,18 @@
+.confirmation-container {
+    display: flex;
+    a.button.primary {
+        margin: 10px 0 10px 0;
+    }
+}
+
+.confirm-graphic {
+    display: flex;
+    justify-content: center;
+
+    img {
+        height: auto;
+        flex-basis: 50%;
+        max-width: 16%;
+        margin: 10px 0 20px 0;
+    }
+}

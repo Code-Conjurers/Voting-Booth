@@ -10,6 +10,7 @@ import Results from './Pages/Results';
 import NavBar from './Components/NavBar';
 import Footer from './Components/Footer';
 import Home from './Pages/Home';
+import PollConfirmation from './Components/PollConfirmation';
 
 // CSS
 import './App.scss';
@@ -27,6 +28,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/createpoll" element={<CreatePoll />} />
+          <Route path="/pollConfirmation" element={<PollConfirmation />} />
           <Route path="/findpoll" element={<FindPoll />} />
           <Route path="/votingbooth/:boothID" element={<VotingBooth />} />
           <Route path="/results/:boothID" element={<Results />} />

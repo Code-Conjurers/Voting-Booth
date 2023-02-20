@@ -111,7 +111,7 @@ const VotingBooth = () => {
                       <img src={votingImage} alt="Group of people voting digitally on a monitor"/>
 
                       <div className="voting-question">
-                        <h3>Question <span className="poll-heading">{poll.poll.pollQuestion}</span></h3>
+                        <h2>Question <span className="poll-heading">{poll.poll.pollQuestion}</span></h2>
                       </div>
 
                       <form onSubmit={(e) => { handleSubmitVote(e, poll) }}>

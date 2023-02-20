@@ -1,4 +1,5 @@
 // Modules
+// Modules
 import * as React from 'react'
 import firebase from '../Components/Firebase';
 import Swal from 'sweetalert2';
@@ -85,13 +86,12 @@ function VotingBooth() {
     e.preventDefault();
 
     navigator.clipboard.writeText(`whatever-floats-your-vote.netlify.app/votingbooth/${poll.key}`)
-
+    
     Swal.fire({
       icon: "success",
       text: 'Link copied!',
       timer: 1500
     });
-
     setIsSubmitted(false);
     return;
   }
@@ -100,7 +100,7 @@ function VotingBooth() {
     <>
       {isSubmitted ?
         < VotingConfirmation boothID={boothID} /> :
-        <div>
+        <section className="voting-ticket">
           {
             pollData.map((poll, index) => {
               return (
@@ -110,7 +110,6 @@ function VotingBooth() {
                       <img src={votingImage} alt="Group of people voting digitally on a monitor"/>
                       <div className="voting-question">
                         <h3>Question <span className="poll-heading">{poll.poll.pollQuestion}</span></h3>
-                        <p>Description: {poll.poll.pollDescription}</p>
                       </div>
                       <form onSubmit={(e) => { handleSubmitVote(e, poll) }}>
                         <fieldset onChange={onChangeValue} className="voting-form">
@@ -142,7 +141,7 @@ function VotingBooth() {
               )
             })
           }
-        </div>}
+        </section>}
     </>
   )
 }

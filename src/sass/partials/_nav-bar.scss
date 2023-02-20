@@ -6,23 +6,29 @@
 .nav-bar {
   width: 100%;
   margin-top: 2%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 5%;
+    
 }
+
 
 .nav-ul {
   display: flex;
-  justify-content: space-evenly;
+  justify-content: flex-end;
 
-  .menu-link {
-    border: 1px solid $transparent;
-    padding: 10px 20px;
-    border-radius: 20px;
-    font-weight: $fw-bold;
-    
-    &:hover,
-    &:focus {
-      border: 1px solid $dark-purple;
-      background-color: $med-purple;
-      color: $white;
-    }
+}
+.menu-link {
+  border: 1px solid $transparent;
+  padding: 10px 20px;
+  border-radius: 20px;
+  font-weight: $fw-bold;
+  
+  &:hover,
+  &:focus {
+    border: 1px solid $dark-purple;
+    background-color: $med-purple;
+    color: $white;
   }
 }

@@ -8,9 +8,7 @@ import Swal from 'sweetalert2';
 
 function PollCreation() {
 
-  // const [pollData, setPollData] = useState([]);
   const [pollQuestion, setPollQuestion] = useState("");
-  const [pollDescription, setPollDescription] = useState("");
   const [optionOneDescription, setOptionOneDescription] = useState("");
   const [optionTwoDescription, setOptionTwoDescription] = useState("");
   const [newPollId, setNewPollId] = useState();
@@ -28,14 +26,14 @@ function PollCreation() {
       Swal.fire({
         icon: 'error',
         title: 'Oops...',
-        text: 'Please fill out all fields before submitting the poll, you schmuck!',
+        confirmButtonColor: '#451F55D',
+        text: 'Please fill out all fields before submitting the poll!',
       });
       return;
     }
 
     const pollObject = {
       pollQuestion: pollQuestion,
-      pollDescription: pollDescription,
       pollOptionOne: {
         optionOneDescription: optionOneDescription,
         votes: 0
@@ -62,7 +60,6 @@ function PollCreation() {
       });
     setIsSubmitted(true);
     setPollQuestion("");
-    setPollDescription("");
     setOptionOneDescription("");
     setOptionTwoDescription("");
   }
@@ -70,9 +67,7 @@ function PollCreation() {
   const handleQuestionChange = (e) => {
     setPollQuestion(e.target.value);
   };
-  const handleDescriptionChange = (e) => {
-    setPollDescription(e.target.value);
-  };
+  
   const handleOptionOneChange = (e) => {
     setOptionOneDescription(e.target.value);
   };
@@ -95,6 +90,7 @@ function PollCreation() {
                 <form className="create-poll-form">
                   <input
                     type="text"
+                    maxLength={80}
                     className="poll-input poll-question"
                     name="poll-question"
                     placeholder="Poll Question"
@@ -102,19 +98,11 @@ function PollCreation() {
                     onChange={handleQuestionChange}
                     aria-label="Poll Question"
                   />
-                  <textarea
-                    className="poll-input poll-description"
-                    name="poll-description"
-                    placeholder="Poll Description"
-                    value={pollDescription}
-                    onChange={handleDescriptionChange}
-                    aria-label="Poll Description"
-                  ></textarea>
-
                   <h3>Enter your polling options:</h3>
 
                   <input
                     type="text"
+                    maxLength={40}
                     className="poll-input poll-option-one"
                     name="poll-option-one"
                     placeholder="Option One"
@@ -124,6 +112,7 @@ function PollCreation() {
                   />
                   <input
                     type="text"
+                    maxLength={40}
                     className="poll-input poll-option-two"
                     name="poll-option-two"
                     placeholder="Option Two"

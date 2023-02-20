@@ -2,7 +2,8 @@
 @use './mixins' as *;
 
 html {
-  font-size: $fs-global
+  font-size: $fs-global;
+  color: $dark-purple;
 }
 
 a, 
@@ -13,14 +14,14 @@ button {
 
 
 h1 {
-  @include heading($fs-xl);
-  margin: 10% 0 5% 0;
-  text-align: center;
+  @include heading($fs-med);
+  margin: 0;
+
 }
 
 h2 {
-  @include heading($fs-lrg);
-  margin: 10% 0 5% 0;
+  @include heading($fs-xl);
+  margin: 5% 0 5% 0;
   text-align: center;
 }
 

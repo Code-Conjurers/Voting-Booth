@@ -43,6 +43,6 @@ const Hamburger = () => {
       </div>
     </div>
   )
-};
+}
 
 export default Hamburger;

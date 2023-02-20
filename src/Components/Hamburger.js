@@ -21,8 +21,7 @@ const Hamburger = () => {
       setMenuClass("menu hidden")
     }
     setIstMenuClicked(!isMenuClicked)
-  };
-
+    
   return (
     <div className="hamburger-nav">
       <h1>

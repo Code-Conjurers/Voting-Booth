@@ -33,10 +33,10 @@ Create an app that allows people to take a quick anonymous poll. Users should be
 ## Screenshots
 <table>
   <tr>
-    <td><img src="https://github.com/Code-Conjurers/Voting-Booth/tree/main/src/assets/read-me/app-preview-create-poll" alt="Screenshot of working app with empty form fields to create functioning poll"/></td>
-    <td><img src="https://github.com/Code-Conjurers/Voting-Booth/tree/main/src/assets/read-me/app-preview-find-a-poll" alt="Screenshot of a page containing multiple poll tiles to choose from" /></td>
-    <td><img src="https://github.com/Code-Conjurers/Voting-Booth/tree/main/src/assets/read-me/app-preview-home" alt="Screenshot of home page of app with a voting image and buttons to participate in or create a poll" /></td>
-    <td><img src="https://github.com/Code-Conjurers/Voting-Booth/tree/main/src/assets/read-me/app-preview-poll-question" alt="Screenshot of voting booth where you can vote on a poll option and submit your answer"/></td>
-    <td><img src="https://github.com/Code-Conjurers/Voting-Booth/tree/main/src/assets/read-me/app-preview-results" alt="Screenshot of a results page showing the results from an existing poll"/></td>
+    <td><img src="https://github.com/Code-Conjurers/Voting-Booth/tree/main/src/assets/read-me/app-preview-create-poll.png" alt="Screenshot of working app with empty form fields to create functioning poll"/></td>
+    <td><img src="https://github.com/Code-Conjurers/Voting-Booth/tree/main/src/assets/read-me/app-preview-find-a-poll.png" alt="Screenshot of a page containing multiple poll tiles to choose from" /></td>
+    <td><img src="https://github.com/Code-Conjurers/Voting-Booth/tree/main/src/assets/read-me/app-preview-home.png" alt="Screenshot of home page of app with a voting image and buttons to participate in or create a poll" /></td>
+    <td><img src="https://github.com/Code-Conjurers/Voting-Booth/tree/main/src/assets/read-me/app-preview-poll-question.png" alt="Screenshot of voting booth where you can vote on a poll option and submit your answer"/></td>
+    <td><img src="https://github.com/Code-Conjurers/Voting-Booth/tree/main/src/assets/read-me/app-preview-results.png" alt="Screenshot of a results page showing the results from an existing poll"/></td>
   </tr>
 </table>

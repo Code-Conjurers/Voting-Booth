@@ -2,10 +2,10 @@
 
 # ⛵"Whatever Floats Your Vote"🗳️
 A collaborative app built at [Juno College of Technology](https://junocollege.com/).
-- [Fiona Freemark](https://github.com/fionafreemark) [Portfolio](https://freemark.dev/)
-- [Chris O'Bray](https://github.com/nobrayn) [Portfolio](https://nobrayn.com/)
-- [Libby Reeves](https://github.com/libbyreeves) [Portfolio](https://elizabeth-reeves.ca/)
-- [Caryl Tan](https://github.com/caryltan) [Portfolio](https://caryltan.com/)
+- Fiona Freemark | [Repo](https://github.com/fionafreemark) | [Portfolio](https://freemark.dev/)
+- Chris O'Bray | [Repo](https://github.com/nobrayn) | [Portfolio](https://nobrayn.com/)
+- Libby Reeves | [Repo](https://github.com/libbyreeves) | [Portfolio](https://elizabeth-reeves.ca/)
+- Caryl Tan | [Repo](https://github.com/caryltan) | [Portfolio](https://caryltan.com/)
 
 ## Project Description
 Create an app that allows people to take a quick anonymous poll. Users should be able to create a polling room that can be shared with anyone who should take part in the poll. The poll creator should be able to keep track of how many people have voted and then get or display the secret results. Results are stored within Firebase.

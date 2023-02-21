@@ -42,6 +42,7 @@ button {
   &:hover,
   &:focus {
     color: $pink;
+    cursor: pointer;
   }
 
   &.button {

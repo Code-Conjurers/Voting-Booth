@@ -91,6 +91,7 @@ const PollCreation = () => {
             <>
               <h2 className="create-title">Create Your Poll</h2>
               <form className="create-poll-form">
+                <h3>What's your question?</h3>
                 <input
                   type="text"
                   maxLength={80}
@@ -101,7 +102,7 @@ const PollCreation = () => {
                   onChange={handleQuestionChange}
                   aria-label="Poll Question"
                 />
-                <h3>Enter your polling options:</h3>
+                <h3>Enter polling options:</h3>
                 <input
                   type="text"
                   maxLength={40}

@@ -18,8 +18,8 @@ const ResultsBar = () => {
   const [optionTwoDescription, setOptionTwoDescription] = useState("");
   const [votesTwo, setVotesTwo] = useState();
   const [totalVotes, setTotalVotes] = useState();
-  const [voteOnePercent, setVoteOnePercent] = useState();
-  const [voteTwoPercent, setVoteTwoPercent] = useState();
+  const [voteOnePercent, setVoteOnePercent] = useState(0);
+  const [voteTwoPercent, setVoteTwoPercent] = useState(0);
   //database reference
   const dbRef = ref(database, `/${boothID}`);
 
@@ -67,11 +67,15 @@ const ResultsBar = () => {
       <h3 className="results-bar-h3">Total Votes: {totalVotes}</h3>
       <section className="progress-bars-container">
         <div className="progress-bar-one">
-          <p className="results-bar-p"> <p className="results-option">{optionOneDescription}</p> has {voteOnePercent}% of the vote.</p>
+          <p className="results-bar-p">
+            <span className="results-option">{optionOneDescription}</span> has {voteOnePercent}% of the vote.
+            </p>
           <ProgressBar completed={voteOnePercent} bgColor="#E54F6D" />
         </div>
         <div className="progress-bar-two">
-          <p className="results-bar-p"> <p className="results-option">{optionTwoDescription}</p> has {voteTwoPercent}% of the vote.</p>
+          <p className="results-bar-p">
+            <span className="results-option">{optionTwoDescription}</span> has {voteTwoPercent}% of the vote.
+            </p>
           <ProgressBar completed={voteTwoPercent}
             bgColor="#724E91" />
         </div>

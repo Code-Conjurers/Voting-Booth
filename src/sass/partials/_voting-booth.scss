@@ -22,6 +22,7 @@
     font-size: $fs-med;
     font-family: $ff;
     color: $dark-purple;
+    cursor: pointer;
   }
 
   input[type="radio"] {
@@ -29,6 +30,7 @@
     height: $fs-med;
     width: $fs-med;
     margin-top: 2px;
+    cursor: pointer;
   }
 
   .poll-heading {

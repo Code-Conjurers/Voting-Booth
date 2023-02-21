@@ -7,7 +7,7 @@ A collaborative app built at [Juno College of Technology](https://junocollege.co
 - [Libby Reeves](https://github.com/libbyreeves) [Portfolio](https://elizabeth-reeves.ca/)
 - [Caryl Tan](https://github.com/caryltan) [Portfolio](https://caryltan.com/)
 
-## Project description.
+## Project Description
 Create an app that allows people to take a quick anonymous poll. Users should be able to create a polling room that can be shared with anyone who should take part in the poll. The poll creator should be able to keep track of how many people have voted and then get or display the secret results. Results are stored within Firebase.
 
 ## Built With 

@@ -160,11 +160,6 @@
     width: 220px;
   }
 
-  //nav-bar
-  .hamburger-nav h1 {
-    width: 400%;
-  }
-
   //results
   .results {
     .results-h2 {
@@ -235,15 +230,6 @@
   .menu-link-ham {
     display: block;
   }
-  .nav-bar {
-    display: none;
-  }
-  .burger-bar {
-    z-index: 3;
-  }
-  .burger-nav {
-    display: block;
-  }
 
   //home-page
   .header-h2 h2 {
@@ -263,9 +249,25 @@
     .button {
       min-width: 140px;
     }
-
-    //poll-creation
   }
+  //nav-bar
+  .nav-bar {
+    display: none;
+  }
+    .nav-wrap {
+      display: inline-block;
+    }
+  
+  .burger-bar {
+    z-index: 3;
+  }
+  .burger-nav {
+    display: block;
+  }
+  .burger-container {
+    width: 70%;
+  }
+  //poll-creation
   .create-buttons {
     display: flex;
     flex-direction: column;

@@ -97,3 +97,10 @@ header {
     margin: 3% 0 5% 0;
   }
 }
+
+.voting-question h2 {
+  font-size: $fs-lrg;
+  span {
+    margin-top: 12px;
+  }
+}

@@ -1,6 +1,8 @@
-[Link to live site](https://whatever-floats-your-vote.netlify.app/)
+
 
 # ⛵"Whatever Floats Your Vote"🗳️
+[Link to live site](https://whatever-floats-your-vote.netlify.app/)
+
 A collaborative app built at [Juno College of Technology](https://junocollege.com/).
 - Fiona Freemark | [Github](https://github.com/fionafreemark) | [Portfolio](https://freemark.dev/)
 - Chris O'Bray | [Github](https://github.com/nobrayn) | [Portfolio](https://nobrayn.com/)

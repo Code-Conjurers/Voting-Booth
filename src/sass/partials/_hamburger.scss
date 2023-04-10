@@ -12,10 +12,13 @@
 
 .hamburger-nav {
   display: flex;
+  h1 {
+    width: 80%;
+  }
 }
 
 .burger-container {
-  width: 100%;
+  width: 20%;
   display: flex;
   justify-content: right;
 }
@@ -55,7 +58,7 @@
 
 .menu {
   width: 240px;
-  height: 240px;
+  height: 290px;
   background-color: white;
   position: absolute;
   top: 0;

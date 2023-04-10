@@ -22,13 +22,15 @@
     font-size: $fs-med;
     font-family: $ff;
     color: $dark-purple;
+    cursor: pointer;
   }
 
   input[type="radio"] {
     accent-color: $pink;
-    height: $fs-med;
-    width: $fs-med;
+    height: 22px;
+    width: 22px;
     margin-top: 2px;
+    cursor: pointer;
   }
 
   .poll-heading {

@@ -42,6 +42,7 @@ button {
   &:hover,
   &:focus {
     color: $pink;
+    cursor: pointer;
   }
 
   &.button {
@@ -94,5 +95,12 @@ header {
 .header-h1 {
   h2 {
     margin: 3% 0 5% 0;
+  }
+}
+
+.voting-question h2 {
+  font-size: $fs-lrg;
+  span {
+    margin-top: 12px;
   }
 }

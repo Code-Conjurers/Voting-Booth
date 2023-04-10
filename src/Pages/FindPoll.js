@@ -48,8 +48,6 @@ const FindPoll = () => {
       text: "You won't be able to revert this!",
       icon: "warning",
       showCancelButton: true,
-      confirmButtonColor: "#d33",
-      cancelButtonColor: "#724E91",
       confirmButtonText: "Yes, delete it!"
     }).then((result) => {
       if (result.isConfirmed) {
@@ -71,7 +69,7 @@ const FindPoll = () => {
       {/* Map through our firebase "Poll Data" and return the poll name & link to the page for each available poll. */}
       {[...pollData].reverse().map((poll, index) => {
         return (
-          <div className="find-poll-container" key={index}>
+          <div className="find-poll-container" key={poll.key}>
             <div className="h3-container">
               <h3>{poll.poll.pollQuestion}</h3>
             </div>{/* End of .h3-container */}
